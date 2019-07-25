@@ -1,0 +1,5 @@
+package com.varnaTravelGuide.vtg.model;
+
+public class Restaurant {
+
+}
