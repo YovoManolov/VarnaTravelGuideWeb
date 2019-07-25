@@ -1,0 +1,13 @@
+package com.varnaTravelGuide.vtg.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Users {
+	@Id
+	private String _id;
+	private String username;
+	private String password;
+	private int role;
+}
