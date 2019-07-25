@@ -1,9 +1,0 @@
-package com.varnaTravelGuide.vtg.repository;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-
-import com.varnaTravelGuide.vtg.model.Place;
-
-public interface PriceCategoryRepository extends MongoRepository<PriceCategory, String>{
-	
-}
