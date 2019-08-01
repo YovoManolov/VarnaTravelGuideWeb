@@ -1,5 +1,0 @@
-package com.varnaTravelGuide.vtg.repository;
-
-public interface UserRepository {
-
-}
