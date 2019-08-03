@@ -1,4 +1,6 @@
 spring:
+    application: 
+        name: VarnaTravelGuideWeb
     datasource:
         url: jdbc:mysql://localhost:3306/spring_social?useSSL=false
         username: root
@@ -8,47 +10,33 @@ spring:
       mongodb:
         host: mongoserver
         port: "27017"
+        authentication: database=admin
+        username: root
+        password: root
+        database: VarnaTravelGuide
 
     security:
       oauth2:
         client:
           registration:
             google:
-              clientId: 5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com
-              clientSecret: tWZKVLxaD_ARWsriiiUFYoIk
-              redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
+              clientId: 496244831513-h489l6l21o4ua5pgfb6vrbt921rpb5t2.apps.googleusercontent.com
+              clientSecret: oJAmHqdLty7v97UysF37_AfI 
+              redirectUriTemplate: " http://localhost:8081/oauth2/callback/google"
               scope:
                 - email
                 - profile
-            facebook:
-              clientId: 121189305185277
-              clientSecret: 42ffe5aa7379e8326387e0fe16f34132
-              redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
-              scope:
-                - email
-                - public_profile
-            github:
-              clientId: d3e47fc2ddd966fa4352
-              clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
-              redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
-              scope:
-                - user:email
-                - read:user
+            
           provider:
-            facebook:
-              authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
-              tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
-              userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+             google:
+              authorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+              tokenUri: https://www.googleapis.com/oauth2/v4/token
+
+
 app:
   auth:
-    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC 
     tokenExpirationMsec: 864000000
   oauth2:
-    # After successfully authenticating with the OAuth2 Provider,
-    # we'll be generating an auth token for the user and sending the token to the
-    # redirectUri mentioned by the frontend client in the /oauth2/authorize request.
-    # We're not using cookies because they won't work well in mobile clients.
     authorizedRedirectUris:
       - http://localhost:3000/oauth2/redirect
-      - myandroidapp://oauth2/redirect
-      - myiosapp://oauth2/redirect

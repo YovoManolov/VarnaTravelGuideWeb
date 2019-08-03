@@ -2,6 +2,7 @@ package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import javax.validation.constraints.Email;
 
 @Document(collection = "user")
 public class User {
@@ -9,6 +10,7 @@ public class User {
 	@Id
     private String _id ;
 	private Image profileImage;
+	@Email
 	private String email;
 	private String password;
 	private boolean isAdmin;
