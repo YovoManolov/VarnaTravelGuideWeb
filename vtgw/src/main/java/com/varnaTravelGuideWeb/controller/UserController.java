@@ -52,11 +52,4 @@ public class UserController {
 		return userRepository.save(user);
 	}
 	
-	
-	/*
-	 * @RequestMapping(value = "/settings/{userId}", method = RequestMethod.GET)
-	 * public Object getAllUserSettings(@PathVariable String userId) { User user =
-	 * userRepository.findOne(userId); if (user != null) { return
-	 * user.getUserSettings(); } else { return "User not found."; } }
-	 */
 }	

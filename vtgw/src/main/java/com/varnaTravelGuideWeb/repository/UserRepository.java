@@ -10,7 +10,6 @@ import com.varnaTravelGuideWeb.model.User;
 public interface UserRepository extends MongoRepository<User,String>{
 	
     Optional<User> findByEmail(String email);
-
     Boolean existsByEmail(String email);
 
 }
