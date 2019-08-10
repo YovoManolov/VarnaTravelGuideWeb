@@ -2,29 +2,31 @@ package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class Landmark {
 
 		@Id
 	    private String _id ;
-	    private String place_id;
+		@Field("place_id")
+	    private String placeId;
 	    private String entranceTicket;
 
-	    public Landmark(String _id , String place_id, String entranceTicket) {
+	    public Landmark(String _id , String placeId, String entranceTicket) {
 	        this._id = _id;
-	        this.place_id = place_id;
+	        this.placeId = placeId;
 	        this.entranceTicket = entranceTicket;
 	    }
 
-	    public Landmark(String place_id, String entranceTicket) {
-	        this.place_id = place_id;
+	    public Landmark(String placeId, String entranceTicket) {
+	        this.placeId = placeId;
 	        this.entranceTicket = entranceTicket;
 	    }
 
 		/*
 		 * public Landmark(final Document document) { _id = document.getString("_id");
-		 * place_id = document.getString("place_id"); entranceTicket =
+		 * placeId = document.getString("placeId"); entranceTicket =
 		 * document.getString("entranceTicket"); }
 		 */
 
@@ -36,12 +38,12 @@ public class Landmark {
 	        this._id = _id;
 	    }
 
-	    public String getPlace_id() {
-	        return place_id;
+	    public String getPlaceId() {
+	        return placeId;
 	    }
 
-	    public void setPlace_id(String place_id) {
-	        this.place_id = place_id;
+	    public void setPlaceId(String placeId) {
+	        this.placeId = placeId;
 	    }
 
 	    public String getEntranceTicket() {

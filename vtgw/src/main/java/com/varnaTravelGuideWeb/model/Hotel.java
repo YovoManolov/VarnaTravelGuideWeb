@@ -2,25 +2,27 @@ package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class Hotel {
 		
 		@Id
 	    private String _id ;
-	    private String place_id;
+		@Field("place_id")
+	    private String placeId;
 	    private int numbOfStars;
 
-	    public Hotel(String _id, String place_id, int numbOfStars) {
+	    public Hotel(String _id, String placeId, int numbOfStars) {
 			super();
 			this._id = _id;
-			this.place_id = place_id;
+			this.placeId = placeId;
 			this.numbOfStars = numbOfStars;
 		}
 	    
-		public Hotel(String place_id, int numbOfStars) {
+		public Hotel(String placeId, int numbOfStars) {
 			super();
-			this.place_id = place_id;
+			this.placeId = placeId;
 			this.numbOfStars = numbOfStars;
 		}
 
@@ -29,7 +31,7 @@ public class Hotel {
 	    public String toString() {
 	        return "Hotel{" +
 	                "_id=" + _id +
-	                ", place_id=" + place_id +
+	                ", placeId=" + placeId +
 	                ", numbOfStars=" + numbOfStars +
 	                '}';
 	    }
@@ -42,12 +44,12 @@ public class Hotel {
 	        this._id = id;
 	    }
 
-	    public String getplace_id() {
-	        return place_id;
+	    public String getPlaceId() {
+	        return placeId;
 	    }
 
-	    public void setplace_id(String place_id) {
-	        this.place_id = place_id;
+	    public void setPlaceId(String placeId) {
+	        this.placeId = placeId;
 	    }
 
 	    public int getNumbOfStars() {

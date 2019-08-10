@@ -47,7 +47,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public User addNewUsers(@RequestBody User user) {
+	public User addNewUser(@RequestBody User user) {
 		LOG.info("Saving user.");
 		return userRepository.save(user);
 	}
