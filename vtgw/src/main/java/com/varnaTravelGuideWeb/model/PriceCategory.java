@@ -2,12 +2,14 @@ package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class PriceCategory {
 		
 		@Id
-	 	private String _id;
+		@Field("_id")
+	 	private String id;
 	    private Integer priceCategory_id ;
 	    private String description;
 
@@ -21,20 +23,19 @@ public class PriceCategory {
 		 * priceCategory_id = document.getInteger("priceCategory_id"); description =
 		 * document.getString("description"); }
 		 */
-
-	    public String get_id() {
-	        return _id;
-	    }
-
-	    public void set_id(String _id) {
-	        this._id = _id;
-	    }
-
+	    
 	    public Integer getPriceCategory_id() {
 	        return priceCategory_id;
 	    }
 
-	    public void setPriceCategory_id(Integer priceCategory_id) {
+	    public String getId() {
+			return id;
+		}
+	    
+		public void setId(String id) {
+			this.id = id;
+		}
+		public void setPriceCategory_id(Integer priceCategory_id) {
 	        this.priceCategory_id = priceCategory_id;
 	    }
 

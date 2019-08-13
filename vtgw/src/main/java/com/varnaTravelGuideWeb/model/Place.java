@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class Place {
 	
 	@Id
-	private String _id;
+	@Field("_id")
+	private String id;
     private String name;	
     private String address;
     private Double latitude;
@@ -34,20 +36,20 @@ public class Place {
 	 * Image.convertDocsToImages((ArrayList<Document>) document.get("images"));
 	 * workHours = new WorkHours((Document)document.get("workHours")); }
 	 */
-
-    public String get_id() {
-        return _id;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
-    }
-
+    
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
         this.name = name;
     }
 

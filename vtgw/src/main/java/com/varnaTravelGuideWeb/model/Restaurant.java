@@ -2,17 +2,19 @@ package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class Restaurant {
 	
 	@Id
 	private String _id ;
-    private String place_id;
+	@Field("place_id")
+    private String placeId;
     private String cuisine;
 
-    public Restaurant(String place_id, String cousine) {
-        this.place_id = place_id;
+    public Restaurant(String placeId, String cousine) {
+        this.placeId = placeId;
         this.cuisine = cousine;
     }
 
@@ -20,17 +22,12 @@ public class Restaurant {
         this.cuisine = cousine;
     }
 
-	/*
-	 * public Restaurant(final Document document) { place_id =
-	 * document.getString("place_id"); cuisine = document.getString("cuisine"); }
-	 */
-
-    public String getPlace_id() {
-        return place_id;
+    public String getplaceId() {
+        return placeId;
     }
 
-    public void setPlace_id(String place_id) {
-        this.place_id = place_id;
+    public void setplaceId(String placeId) {
+        this.placeId = placeId;
     }
 
     public String getCuisine() {
