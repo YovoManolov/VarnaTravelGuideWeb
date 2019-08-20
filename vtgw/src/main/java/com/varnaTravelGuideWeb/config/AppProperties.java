@@ -1,14 +1,18 @@
 package com.varnaTravelGuideWeb.config;
 
-	import java.util.ArrayList;
-	import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "app")
 public class AppProperties {
 	
 	 private final Auth auth = new Auth();
 	 private final OAuth2 oauth2 = new OAuth2();
 	 
 	 public static class Auth {
+		 
 	        private String tokenSecret;
 	        private long tokenExpirationMsec;
 

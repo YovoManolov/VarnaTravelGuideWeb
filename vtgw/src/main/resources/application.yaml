@@ -1,20 +1,22 @@
 spring:
     application: 
         name: VarnaTravelGuideWeb
-    datasource:
-        url: jdbc:mysql://localhost:3306/spring_social?useSSL=false
-        username: root
-        password: callicoder
         
     data:
+      mongo: 
+        repositories: 
+          enabled: true
       mongodb:
-        host: mongoserver
-        port: "27017"
-        authentication: database=admin
-        username: root
-        password: root
+        uri: mongodb+srv://admin:"ronaldo7#"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        host: 
+        port: 
+        authentication-database:
+        username: 
+        password: 
         database: VarnaTravelGuide
-
+        
+        
+        
     security:
       oauth2:
         client:
@@ -32,6 +34,12 @@ spring:
               authorizationUri: https://accounts.google.com/o/oauth2/v2/auth
               tokenUri: https://www.googleapis.com/oauth2/v4/token
 
+
+logging:
+    level:
+        org:
+          springframework:
+                web: DEBUG
 
 app:
   auth:
