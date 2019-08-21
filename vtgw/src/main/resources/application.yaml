@@ -16,16 +16,14 @@ spring:
         database: VarnaTravelGuide
         
         
-        
     security:
       oauth2:
         client:
-          registration:
+            registration:
             google:
               clientId: 496244831513-h489l6l21o4ua5pgfb6vrbt921rpb5t2.apps.googleusercontent.com
               clientSecret: oJAmHqdLty7v97UysF37_AfI 
-              redirectUriTemplate: " http://localhost:8081/oauth2/callback/google"
-              scope:
+              scope:  
                 - email
                 - profile
             
@@ -34,7 +32,9 @@ spring:
               authorizationUri: https://accounts.google.com/o/oauth2/v2/auth
               tokenUri: https://www.googleapis.com/oauth2/v4/token
 
-
+        resource: 
+            userInfoUri:  https://www.googleapis.com/userinfo/v2/me
+            preferTokenInfo: false
 logging:
     level:
         org:
