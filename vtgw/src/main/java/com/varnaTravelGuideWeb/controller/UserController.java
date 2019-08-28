@@ -1,6 +1,5 @@
 package com.varnaTravelGuideWeb.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 

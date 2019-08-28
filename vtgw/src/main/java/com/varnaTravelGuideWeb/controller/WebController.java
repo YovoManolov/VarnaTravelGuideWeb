@@ -13,13 +13,14 @@ public class WebController {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() { 
-		 return "templates/index";
+		 return "index";
 	}
 	
-	
+		
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
-		return "redirect:/login";
+		//redirect:/
+		return "login";
 	}
 	
 	@RequestMapping("user")

@@ -17,6 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
          http.antMatcher("/**").authorizeRequests()
          .antMatchers("/","/login**","/callback/",
         		 		"/webjars/**","/error**").permitAll()
-         .anyRequest().authenticated();
+         .anyRequest().authenticated()
+         //.and().logout().logoutSuccessUrl("/").permitAll();
+         ;
     }
 }
