@@ -1,3 +1,8 @@
+#server:
+#    port: 8080
+#    session:
+#      cookie:
+#        name: UISESSION    
 spring:
     application: 
         name: VarnaTravelGuideWeb
@@ -15,10 +20,14 @@ spring:
 #        password: 
         database: VarnaTravelGuide
         
-    security:
+security:
       oauth2:
+      sso:
+        login-path: /login
         client:
-            registration:
+            useCurrentUri: false
+            preEstablishedRedirectUri: http://localhost:8080/index
+            registratsion:
               google:
                 clientId: 496244831513-h489l6l21o4ua5pgfb6vrbt921rpb5t2.apps.googleusercontent.com
                 clientSecret: oJAmHqdLty7v97UysF37_AfI
@@ -28,15 +37,14 @@ spring:
                 scope:  
                   - email
                   - profile
-            useCurrentUri: false
             
-#             provider:
+#            provider:
 #               google:
 #                authorizationUri: https://accounts.google.com/o/oauth2/v2/auth
 #                tokenUri: https://www.googleapis.com/oauth2/v4/token
 
         resource: 
-            userInfoUri:  https://www.googleapis.com/userinfo/v2/me
+            userInfoUri:  https://www.googleapis.com/varnatravelguideweb
             preferTokenInfo: false
 logging:
     level:
@@ -50,4 +58,4 @@ app:
     tokenExpirationMsec: 864000000
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:3000/oauth2/redirect
+        http://localhost:3000/oauth2/redirect
