@@ -1,15 +1,13 @@
 package com.varnaTravelGuideWeb.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-import com.varnaTravelGuideWeb.model.User;
 
-@Repository
-public interface UserRepository extends MongoRepository<User,String>{
+import com.varnaTravelGuideWeb.entity.User;
+
+
+public interface UserRepository extends MongoRepository<User, String> {
+
+	User findByUsername(String username);
+	User findByEmail(String email);
 	
-    Optional<User> findByEmail(String email);
-    Boolean existsByEmail(String email);
-
 }

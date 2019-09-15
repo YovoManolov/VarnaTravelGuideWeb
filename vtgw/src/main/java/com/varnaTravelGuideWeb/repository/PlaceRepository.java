@@ -2,7 +2,8 @@ package com.varnaTravelGuideWeb.repository;
 
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.varnaTravelGuideWeb.model.Place;
+
+import com.varnaTravelGuideWeb.entity.Place;
 
 
 public interface PlaceRepository extends MongoRepository<Place, String> {

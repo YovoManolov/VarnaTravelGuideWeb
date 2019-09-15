@@ -13,12 +13,12 @@ spring:
           enabled: true
       mongodb:
         uri: mongodb+srv://admin:"ronaldo7#"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        database: VarnaTravelGuide
 #        host: 
 #        port: 
 #        authentication-database:
 #        username: 
 #        password: 
-        database: VarnaTravelGuide
         
 security:
       oauth2:
