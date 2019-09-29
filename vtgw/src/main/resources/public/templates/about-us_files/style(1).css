@@ -567,7 +567,7 @@ button:focus {
   @media (max-width: 767px) {
     .header-right {
       position: relative;
-      background: url(../img/banner/banner-img.jpg) center no-repeat;
+      background: url(../about-us_files/varna-coastline.png) center no-repeat;
       background-size: cover;
       padding: 100px 120px;
       z-index: 1; }
@@ -783,8 +783,8 @@ button:focus {
       width: 150px; } }
   @media (max-width: 991px) {
     .counter_area .single_counter {
-      height: 150px;
-      width: 138px;
+      height: 160px;
+      width: 160px;
       padding: 15px; }
       .counter_area .single_counter:last-child {
         margin-top: 30px; } }

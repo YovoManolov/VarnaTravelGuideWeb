@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0092)file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/about-us.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<!-- Required meta tags -->
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +22,13 @@
 	<link rel="stylesheet" href="./about-us_files/jquery.mCustomScrollbar.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="./about-us_files/style(1).css">
-<script src="./about-us_files/jquery.mousewheel.min.js.download"></script></head>
+	<script src="./about-us_files/jquery.mousewheel.min.js.download"></script>
+	<script src="./about-us_files/jquery.mousewheel.min.js(1).download"></script>
+	<script src="./about-us_files/jquery.mousewheel.min.js(2).download"></script>
+	<script>
+		$('#dropdownMenu').load('/vtgw/src/main/resources/public/templates/htmlFragments/dropdown.html')
+	</script>	
+</head>
 
 <body>
 
@@ -42,11 +51,16 @@
 					<button type="button" class="dropdown-toggle" data-toggle="dropdown">
 						Pages
 					</button>
-					<div class="dropdown-menu">
+					<div id="dropdownMenu"></div>
+					<!-- <div class="dropdown-menu">
 						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/about-us.html">About-us</a>
 						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/amenities.html">Amenities</a>
 						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/elements.html">Elements</a>
-					</div>
+						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/places.html">Hotels</a>
+						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/places.html">Landmark</a>
+						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/places.html">Restaurants</a>
+						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/places.html">Shopping place</a>
+					</div> -->
 				</div>
 			</li>
 			<li>
@@ -98,10 +112,7 @@
 					<h1>
 						About Varna
 					</h1>
-					<p class="pt-20">
-						We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to day also
-						asks us to remain physically young. Young at heart.
-					</p>
+					<p class="pt-20">The city of Varna is situated in the North-Eastern part of Bulgaria, on the Black Sea shore. Varna is the third largest city in Bulgaria and the largest one on the Black Sea shore with population of about 330 000 people. Because of its history and its economical and cultural significance, it is often called the Sea Capital of Bulgaria.</p>
 					<div class="page-link-wrap">
 						<div class="page_link">
 							<a href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/index.html">Home</a>
@@ -113,7 +124,7 @@
 
 				<div class="col-lg-6 col-md-6 header-left">
 					<div class="">
-						<img class="img-fluid w-100" src="./about-us_files/banner-img1.jpg" alt="">
+						<img class="img-fluid w-100" src="./about-us_files/varna-coastline.png" alt="">
 					</div>
 				</div>
 			</div>
@@ -135,7 +146,7 @@
 				<div class="col-lg-5 offset-lg-1">
 					<div class="right-content">
 						<div class="main_title">
-							<h1>Popular <br>Places Around <br>The World</h1>
+							<h1>Popular <br>Places In<br>Varna</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
 						</div>
@@ -144,20 +155,20 @@
 								<!-- single counter -->
 								<div class="single_counter">
 									<div class="thumb">
-										<img src="./about-us_files/icon1.png" alt="">
+										<img width="25" heigth="17" src="./about-us_files/icon5-landmarks.png" alt="">
 									</div>
 									<div class="info-content">
-										<h4>London</h4>
+										<h4>Landmarks</h4>
 										<p>135 Places</p>
 									</div>
 								</div>
 								<!-- single counter -->
 								<div class="single_counter">
 									<div class="thumb">
-										<img src="./about-us_files/icon2.png" alt="">
+										<img src="./about-us_files/icon6-hotels.png" width="25" heigth="17">
 									</div>
 									<div class="info-content">
-										<h4>Turkey</h4>
+										<h4>Hotels</h4>
 										<p>75 Places</p>
 									</div>
 								</div>
@@ -167,20 +178,20 @@
 								<!-- single counter -->
 								<div class="single_counter">
 									<div class="thumb">
-										<img src="./about-us_files/icon3.png" alt="">
+										<img src="./about-us_files/icon7.png" width="25" heigth="17">
 									</div>
 									<div class="info-content">
-										<h4>Paris</h4>
+										<h4>Restaurants</h4>
 										<p>150 Places</p>
 									</div>
 								</div>
 								<!-- single counter -->
 								<div class="single_counter">
 									<div class="thumb">
-										<img src="./about-us_files/icon4.png" alt="">
+										<img src="./about-us_files/icon8-landmarks.png" width="25" heigth="17">
 									</div>
 									<div class="info-content">
-										<h4>Thailand</h4>
+										<h4>Shopping places</h4>
 										<p>85 Places</p>
 									</div>
 								</div>
@@ -270,7 +281,7 @@
 						
 						<!-- single testi -->
 						
-					<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-631px, 0px, 0px); transition: all 0s ease 0s; width: 1894px;"><div class="owl-item cloned" style="width: 315.6px;"><div class="single_testi">
+					<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-495px, 0px, 0px); transition: all 0s ease 0s; width: 1734px;"><div class="owl-item cloned" style="width: 247.6px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev(1).png"></div><div class="owl-next"><img src="./about-us_files/cnext(1).png"></div></div></div><div class="owl-item cloned" style="width: 247.6px;"><div class="owl-dots disabled"></div></div><div class="owl-item active" style="width: 247.6px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1020px, 0px, 0px); transition: all 0s ease 0s; width: 3570px;"><div class="owl-item cloned" style="width: 510px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div></div><div class="owl-item cloned" style="width: 510px;"><div class="owl-dots disabled"></div></div><div class="owl-item active" style="width: 510px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1020px, 0px, 0px); transition: all 0s ease 0s; width: 3060px;"><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
 							<div class="quote">
 								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
 							</div>
@@ -285,7 +296,7 @@
 									<p>Chief Executive, Amazon</p>
 								</div>
 							</div>
-						</div></div><div class="owl-item cloned" style="width: 315.6px;"><div class="single_testi">
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
 							<div class="quote">
 								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
 							</div>
@@ -300,7 +311,7 @@
 									<p>Chief Executive, Amazon</p>
 								</div>
 							</div>
-						</div></div><div class="owl-item active" style="width: 315.6px;"><div class="single_testi">
+						</div></div><div class="owl-item active" style="width: 510px;"><div class="single_testi">
 							<div class="quote">
 								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
 							</div>
@@ -315,7 +326,7 @@
 									<p>Chief Executive, Amazon</p>
 								</div>
 							</div>
-						</div></div><div class="owl-item" style="width: 315.6px;"><div class="single_testi">
+						</div></div><div class="owl-item" style="width: 510px;"><div class="single_testi">
 							<div class="quote">
 								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
 							</div>
@@ -330,7 +341,7 @@
 									<p>Chief Executive, Amazon</p>
 								</div>
 							</div>
-						</div></div><div class="owl-item cloned" style="width: 315.6px;"><div class="single_testi">
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
 							<div class="quote">
 								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
 							</div>
@@ -345,7 +356,7 @@
 									<p>Chief Executive, Amazon</p>
 								</div>
 							</div>
-						</div></div><div class="owl-item cloned" style="width: 315.6px;"><div class="single_testi">
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
 							<div class="quote">
 								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
 							</div>
@@ -360,7 +371,277 @@
 									<p>Chief Executive, Amazon</p>
 								</div>
 							</div>
-						</div></div></div></div><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div><div class="owl-dots disabled"></div></div>
+						</div></div></div></div></div><div class="owl-item" style="width: 510px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div></div><div class="owl-item" style="width: 510px;"><div class="owl-dots disabled"></div></div><div class="owl-item cloned" style="width: 510px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1020px, 0px, 0px); transition: all 0s ease 0s; width: 3060px;"><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item active" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div></div></div></div><div class="owl-item cloned" style="width: 510px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div></div></div></div></div><div class="owl-item" style="width: 247.6px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev(1).png"></div><div class="owl-next"><img src="./about-us_files/cnext(1).png"></div></div></div><div class="owl-item" style="width: 247.6px;"><div class="owl-dots disabled"></div></div><div class="owl-item cloned" style="width: 247.6px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1020px, 0px, 0px); transition: all 0s ease 0s; width: 3570px;"><div class="owl-item cloned" style="width: 510px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div></div><div class="owl-item cloned" style="width: 510px;"><div class="owl-dots disabled"></div></div><div class="owl-item active" style="width: 510px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1020px, 0px, 0px); transition: all 0s ease 0s; width: 3060px;"><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item active" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div></div></div></div><div class="owl-item" style="width: 510px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div></div><div class="owl-item" style="width: 510px;"><div class="owl-dots disabled"></div></div><div class="owl-item cloned" style="width: 510px;"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1020px, 0px, 0px); transition: all 0s ease 0s; width: 3060px;"><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item active" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div><div class="owl-item cloned" style="width: 510px;"><div class="single_testi">
+							<div class="quote">
+								<img class="img-fluid" src="./about-us_files/quote.png" alt="">
+							</div>
+							<div class="testi_content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.</p>
+							</div>
+							<div class="testi_author">
+								<div class="a-desc">
+									<h4>Marvel Maison</h4>
+									<p>Chief Executive, Amazon</p>
+								</div>
+							</div>
+						</div></div></div></div></div><div class="owl-item cloned" style="width: 510px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev.png"></div><div class="owl-next"><img src="./about-us_files/cnext.png"></div></div></div></div></div></div><div class="owl-item cloned" style="width: 247.6px;"><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev(1).png"></div><div class="owl-next"><img src="./about-us_files/cnext(1).png"></div></div></div></div></div><div class="owl-nav"><div class="owl-prev"><img src="./about-us_files/cprev(2).png"></div><div class="owl-next"><img src="./about-us_files/cnext(2).png"></div></div><div class="owl-dots disabled"></div></div>
 				</div>
 			</div>
 		</div>
@@ -445,7 +726,7 @@
 				<div class="row justify-content-between">
 					<div>
 						<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright ©<script>document.write(new Date().getFullYear());</script>2019 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+Copyright ©<script>document.write(new Date().getFullYear());</script>201920192019 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 					</div>
 					<div class="footer-social d-flex align-items-center">
@@ -477,7 +758,7 @@ Copyright ©<script>document.write(new Date().getFullYear());</script>2019 All r
 	<script src="./about-us_files/jquery.magnific-popup.min.js.download"></script>
 	<script src="./about-us_files/swiper.min.js.download"></script>
 	<script src="./about-us_files/jquery.mCustomScrollbar.js.download"></script>
-	<script src="./about-us_files/theme.js.download"></script><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+	<script src="./about-us_files/theme.js.download"></script><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
 
 
 </body></html>
