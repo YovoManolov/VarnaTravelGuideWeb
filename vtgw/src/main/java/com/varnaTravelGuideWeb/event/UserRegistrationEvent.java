@@ -3,6 +3,7 @@ package com.varnaTravelGuideWeb.event;
 import org.springframework.context.ApplicationEvent;
 
 import com.varnaTravelGuideWeb.entity.User;
+
 import lombok.Getter;
 
 @Getter

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.varnaTravelGuideWeb.annotations.CryptoPrincipal;
 import com.varnaTravelGuideWeb.exception.InvalidTOTPVerificationCode;
 import com.varnaTravelGuideWeb.model.TotpCode;
 import com.varnaTravelGuideWeb.service.TOTPService;

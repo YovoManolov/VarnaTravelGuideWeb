@@ -22,18 +22,16 @@ public class SupportQuery {
 	private String id;
 	private final String username;
 	private final String subject;
-	private List<Post> posts = new ArrayList<>();
+	//private List<Post> posts = new ArrayList<>();
 	private Calendar created = Calendar.getInstance();
 	private boolean resolved;
 	
-	public void addPost(Post post) {
-		this.posts.add(post);
-	}
-	
-	public void addPost(String post, String username) {
-		posts.add(new Post(username, post, System.currentTimeMillis()));
-	}
-	
+	/*
+	 * public void addPost(Post post) { this.posts.add(post); }
+	 * 
+	 * public void addPost(String post, String username) { posts.add(new
+	 * Post(username, post, System.currentTimeMillis())); }
+	 */
 	public void resolve() {
 		this.resolved=true;
 	}
