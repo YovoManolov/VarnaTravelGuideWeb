@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <!-- saved from url=(0092)file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/about-us.html -->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:with="http://www.thymeleaf.org/extras/with"
+       >
 
-<head>
+<head>	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<!-- Required meta tags -->
 	
@@ -18,7 +21,7 @@
 	<link rel="stylesheet" href="./about-us_files/nice-select.css">
 	<link rel="stylesheet" href="./about-us_files/animate.css">
 	<link rel="stylesheet" href="./about-us_files/jquery-ui.css">
-	<link rel="stylesheet" href="./about-us_files/magnific-popup.css">
+	<link rel="stylesheet" href="./abou	t-us_files/magnific-popup.css">
 	<link rel="stylesheet" href="./about-us_files/swiper.min.css">
 	<link rel="stylesheet" href="./about-us_files/jquery.mCustomScrollbar.css">
 	<!-- main css -->
@@ -26,15 +29,11 @@
 	
 	<script src="./about-us_files/jquery-3.2.1.min.js.download"></script>
 	<script src="./about-us_files/jquery.mousewheel.min.js.download"></script>
-	<script src="./about-us_files/jquery.mousewheel.min.js(1).download"></script>
-	<script src="./about-us_files/jquery.mousewheel.min.js(2).download"></script>
 </head>
 	
 <body>
-
-		
 	<!--================ Offcanvus Menu Area =================-->
-	<div class="side_menu">
+	<!-- <div class="side_menu">
 		<div class="logo">
 			<a href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/index.html">
 				<img src="./about-us_files/logo.png" alt="">
@@ -61,7 +60,7 @@
 						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/places.html">Restaurants</a>
 						<a class="dropdown-item" href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/places.html">Shopping place</a>
 					</div>
-					<!-- <div th:replace="/vtgw/src/main/resources/public/templates/htmlFragments/dropdown :: dropdownMenu"></div> -->
+					<div th:replace="/vtgw/src/main/resources/public/templates/htmlFragments/dropdown :: dropdownMenu"></div>
 				</div>
 			</li>
 			<li>
@@ -79,18 +78,23 @@
 				<a href="file:///D:/GitHub/VarnaTravelGuideWeb/vtgw/src/main/resources/public/templates/contact.html">Contact</a>
 			</li>
 		</ul>
-	</div>
+	</div> 
+	-->
 	<!--================ End Offcanvus Menu Area =================-->
 
 	<!--================ Canvus Menu Area =================-->
-	<div class="canvus_menu">
+	<!-- <div class="canvus_menu">
 		<div class="container">
 			<div class="toggle_icon" title="Menu Bar">
 				<span></span>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!--================ End Canvus Menu Area =================-->
+	
+	<!-- --<div th:replace="./templates/htmlFragments/header.html :: header"></div> -->
+	<th:block layout:replace="~{templates/htmlFragments/fragmentHeader.html}">
+	</th:block>
 
 	<section class="top-btn-area">
 		<div class="container">
@@ -679,13 +683,15 @@ Copyright ©<script>document.write(new Date().getFullYear());</script>2019201920
 	<!--================ End footer Area  =================-->	
 	<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="./about-us_files/jquery-3.2.1.min.js.download"></script>
+	<!-- <script src="./about-us_files/jquery-3.2.1.min.js.download"></script>
 		<script src="./about-us_files/popper.js.download"></script>
 		<script src="./about-us_files/bootstrap.min.js.download"></script>
-		
-<!-- 		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		 -->
+		 
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 		<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> -->
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		
 		<script src="./about-us_files/stellar.js.download"></script>
 		<script src="./about-us_files/jquery.nice-select.min.js.download"></script>
 		<script src="./about-us_files/imagesloaded.pkgd.min.js.download"></script>
