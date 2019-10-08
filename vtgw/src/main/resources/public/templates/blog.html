@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:with="http://www.thymeleaf.org/extras/with">
 
 <head>
     <!-- Required meta tags -->
@@ -23,7 +27,7 @@
 </head>
 
 <body>
-
+	<th:block layout:replace="~{templates/htmlFragments/fragmentHeader.html}"></th:block>
     <!--================ Offcanvus Menu Area =================-->
     <div class="side_menu">
         <div class="logo">
