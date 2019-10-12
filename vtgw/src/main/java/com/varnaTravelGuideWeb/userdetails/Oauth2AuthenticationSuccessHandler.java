@@ -34,9 +34,9 @@ public class Oauth2AuthenticationSuccessHandler implements AuthenticationSuccess
 					OAuth2AuthenticationToken oToken = (OAuth2AuthenticationToken)authentication;
 					//String name = oToken.getPrincipal().getAttributes().get("name").toString();
 					//String email = oToken.getPrincipal().getAttributes().get("email").toString();			}
-			}
-			this.redirectStrategy.sendRedirect(request, response, "/portfolio");
-			}
-		*/
+			}*/
+			this.redirectStrategy.sendRedirect(request, response, "/index");
+			//}
+		
 	}
 }
