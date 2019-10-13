@@ -20,7 +20,7 @@ import com.varnaTravelGuideWeb.userdetails.AuthenticationSuccessHandlerImpl;
 
 
 @Configuration
-@EnableWebSecurity(debug = true)
+//@EnableWebSecurity(debug = true)
 @EnableOAuth2Sso
 public class SecurityConfig extends WebSecurityConfigurerAdapter  {	
 
@@ -41,27 +41,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-         http
-			.addFilterBefore(totpAuthFilter, UsernamePasswordAuthenticationFilter.class)
-			.exceptionHandling().accessDeniedHandler(accessDeniedHandler)
-			.and()
-			.formLogin().loginPage("/login")
-				.successHandler(new AuthenticationSuccessHandlerImpl())
-				.failureUrl("/login-error")
-				.authenticationDetailsSource(new AdditionalAuthenticationDetailsSource())
-				.and()
-			.rememberMe()
-				.authenticationSuccessHandler(new AuthenticationSuccessHandlerImpl())
-				.tokenRepository(persistentTokenRepository)
-				.and()
-			.oauth2Login()
-				.loginPage("/login")
-				.successHandler(oauth2authSuccessHandler)
-				.and()
+         http	//.csrf().disable()
+				
+				  .addFilterBefore(totpAuthFilter, UsernamePasswordAuthenticationFilter.class)
+				  .exceptionHandling().accessDeniedHandler(accessDeniedHandler) .and()
+				  .formLogin().loginPage("/login") .successHandler(new
+				  AuthenticationSuccessHandlerImpl()) .failureUrl("/login-error")
+				  .authenticationDetailsSource(new AdditionalAuthenticationDetailsSource())
+				  .and() .rememberMe() .authenticationSuccessHandler(new
+				  AuthenticationSuccessHandlerImpl())
+				  .tokenRepository(persistentTokenRepository) .and() .oauth2Login()
+				  .loginPage("/login").successHandler(oauth2authSuccessHandler).and()
+				 
 		.authorizeRequests()
+		.mvcMatchers("/anonymous*").anonymous()
          .mvcMatchers( "/index.html", "/home.html", "/login.html", "/", "/access",
         		 "/logout","/callback/","/webjars/**","/error**")
-         					.permitAll().anyRequest().authenticated()
-         ;
+         					.permitAll().anyRequest().authenticated();
     }
 }

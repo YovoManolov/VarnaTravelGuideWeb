@@ -19,11 +19,13 @@ spring:
 #        authentication-database:
 #        username: 
 #        password: 
+    thymeleaf:
+        cache: false
         
 security:
       oauth2:
       sso:
-        login-path: /login
+#        login-path: /login
         client:
             useCurrentUri: false
             preEstablishedRedirectUri: http://localhost:8080/index
@@ -37,11 +39,6 @@ security:
                 scope:  
                   - email
                   - profile
-            
-#            provider:
-#               google:
-#                authorizationUri: https://accounts.google.com/o/oauth2/v2/auth
-#                tokenUri: https://www.googleapis.com/oauth2/v4/token
 
         resource: 
             userInfoUri:  https://www.googleapis.com/varnatravelguideweb

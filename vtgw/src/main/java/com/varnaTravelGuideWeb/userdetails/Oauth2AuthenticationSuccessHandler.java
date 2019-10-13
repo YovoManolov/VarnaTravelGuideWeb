@@ -27,8 +27,7 @@ public class Oauth2AuthenticationSuccessHandler implements AuthenticationSuccess
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
 		
-		/*
-			if(!this.portfolioService.userHasAportfolio(authentication.getName())) {
+			/*if(!this.portfolioService.userHasAportfolio(authentication.getName())) {
 				this.portfolioService.createNewPortfolio(authentication.getName());
 				if (authentication instanceof OAuth2AuthenticationToken) {
 					OAuth2AuthenticationToken oToken = (OAuth2AuthenticationToken)authentication;
