@@ -32,7 +32,7 @@ public class TotpAuthenticationFilter extends GenericFilterBean {
 	
 	private final TOTPService totpService;
 	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-	private String onSuccessUrl = "/portfolio";
+	private String onSuccessUrl = "/index";
 	private String onfailureUrl = "/totp-login-error";
 	
 	public TotpAuthenticationFilter(TOTPService totpService) {

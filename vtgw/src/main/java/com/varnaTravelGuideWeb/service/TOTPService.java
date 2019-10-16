@@ -17,7 +17,7 @@ public class TOTPService {
 	private final GoogleAuthenticator googleAuth = new GoogleAuthenticator();
 	private final TOTPRepository totpRepository;
 	private final UserRepository userRepository;
-	private static final String ISSUER = "Cryptoportfolio.com";
+	private static final String ISSUER = "varnaTravelGuide.com";
 	
 	
 	public TOTPService(TOTPRepository totpRepository, UserRepository userRepository) {
