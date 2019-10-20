@@ -13,12 +13,12 @@ public class WebController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET) 
 	public String index(Model model, Principal principal) { 
-		return "index"; 
+		return "redirect:/index"; 
 	}
 	
 	 @RequestMapping(value = "/login", method = RequestMethod.GET) 
 	 public String loginPage() { 
-		 return "login"; 
+		 return "redirect:/login"; 
 	 }
 	 
 	 @RequestMapping(value = "/login/oauth2/code/google", method = RequestMethod.GET) 

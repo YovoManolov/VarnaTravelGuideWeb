@@ -10,7 +10,7 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String login() {
-		return "templates/login";
+		return "login";
 	}
 
 	@RequestMapping("/login-error")
