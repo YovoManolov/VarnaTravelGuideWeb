@@ -9,19 +9,19 @@ spring:
     thymeleaf:
         cache: false
         check-template-location: true
-        mode: LEGACYHTML5
+        mode: HTML
         encoding: UTF-8
         content-type: text/html
-        prefix:  classpath:/templates/
+        prefix:  classpath:public/templates/
         suffix: .html
     data: 
       mongo:
         repositories: 
           enabled: true
       mongodb:
-        uri: mongodb+srv://admin:"ronaldo7#"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        uri: mongodb+srv://admin:"${mongoDBPass}"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: VarnaTravelGuide
-
+        
 #        host: 
 #        port: 
 #        authentication-database:
@@ -30,26 +30,26 @@ spring:
 
 security:
    basic:
-      enabled: false
-#      oauth2:
-#         resource: 
-#            userInfoUri:  https://www.googleapis.com/varnatravelguideweb
-#            preferTokenInfo: false
-#         client:
-#            useCurrentUri: false
-#            preEstablishedRedirectUri: http://localhost:8080/index
-#            registratsion:
-#              google:
-#                clientId: 496244831513-h489l6l21o4ua5pgfb6vrbt921rpb5t2.apps.googleusercontent.com
-#                clientSecret: oJAmHqdLty7v97UysF37_AfI
-#                
-#                accessTokenUri: https://www.googleapis.com/oauth2/v3/token
-#                userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
-#                scope:  
-#                  - email
-#                  - profile
-#      sso:
-#       login-path: /login
+      enabled: false 
+      oauth2: 
+         resource: 
+            userInfoUri: https://www.googleapis.com/varnatravelguideweb
+            preferTokenInfo: false
+         client:
+            useCurrentUri: false
+            preEstablishedRedirectUri: http://localhost:8080/index
+            registratsion:
+              google:
+                clientId: ${googleClientId}
+                clientSecret: ${googleClientSecret}
+                
+                accessTokenUri: https://www.googleapis.com/oauth2/v3/token
+                userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+                scope:  
+                  - email
+                  - profile
+      sso:
+       login-path: /login
 logging:
     level:
        org: 

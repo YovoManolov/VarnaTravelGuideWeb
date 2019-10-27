@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "app")
+@ConfigurationProperties(prefix = "vtgw")
 public class AppProperties {
 	
 	 private final Auth auth = new Auth();
