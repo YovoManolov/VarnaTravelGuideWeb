@@ -1,9 +1,7 @@
-#server:
-#    port: 8080
-#    session:
-#      cookie:
-#        name: UISESSION    
+
 spring:
+    profiles:
+        
     application: 
         name: vtgw
     thymeleaf:
@@ -12,7 +10,7 @@ spring:
         mode: HTML
         encoding: UTF-8
         content-type: text/html
-        prefix:  classpath:public/templates/
+        prefix:  classpath:resources/static/resources/templates/
         suffix: .html
     data: 
       mongo:
@@ -21,20 +19,15 @@ spring:
       mongodb:
         uri: mongodb+srv://admin:"${mongoDBPass}"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: VarnaTravelGuide
-        
-#        host: 
-#        port: 
-#        authentication-database:
-#        username: 
-#        password: 
 
 security:
    basic:
-      enabled: false 
       oauth2: 
+#         sso:
+#          login-path: /login
          resource: 
             userInfoUri: https://www.googleapis.com/varnatravelguideweb
-            preferTokenInfo: false
+            preferTokenInfo: true
          client:
             useCurrentUri: false
             preEstablishedRedirectUri: http://localhost:8080/index
@@ -48,19 +41,11 @@ security:
                 scope:  
                   - email
                   - profile
-      sso:
-       login-path: /login
+                  - openid
+       
 logging:
-    level:
-       org: 
-         springframework:
-            web: DEBUG 
-            security: DEBUG 
-
-#app:
-#  auth:
-#    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC 
-#    tokenExpirationMsec: 864000000
-#  oauth2:
-#    authorizedRedirectUris:
-#        http://localhost:3000/oauth2/redirect
+  level:
+    root: DEBUG
+    com.memorynotfound: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
