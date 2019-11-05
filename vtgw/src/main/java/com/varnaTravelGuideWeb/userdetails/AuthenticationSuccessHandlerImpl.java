@@ -20,13 +20,17 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Override
-	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+	public void onAuthenticationSuccess(
+			HttpServletRequest request,
+			HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		if(requiresTotpAuthentication(authentication)) {
-			redirectStrategy.sendRedirect(request, response, "/totp-login");
-		} else {
-			redirectStrategy.sendRedirect(request, response, "/portfolio");
-		}
+		redirectStrategy.sendRedirect(request, response, "/index");
+		
+		/*
+		 * if(requiresTotpAuthentication(authentication)) {
+		 * redirectStrategy.sendRedirect(request, response, "/totp-login"); } else {
+		 * redirectStrategy.sendRedirect(request, response, "/portfolio"); }
+		 */
 	}
 
 	private boolean requiresTotpAuthentication(Authentication authentication) {

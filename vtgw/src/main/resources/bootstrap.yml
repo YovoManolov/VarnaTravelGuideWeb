@@ -1,6 +1,6 @@
 spring:
   application:
-    name: crypto
+    name: vtgw
   cloud:
     vault:
       host: localhost
