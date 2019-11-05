@@ -34,10 +34,5 @@ public class User {
 	private String password;
 	@Setter
 	private boolean verified;
-	@NonNull
-	private String securityPin;
-	@NonNull
-	@Setter
-	private boolean totpEnabled;
 	
 }

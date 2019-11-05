@@ -35,7 +35,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 
 	private boolean requiresTotpAuthentication(Authentication authentication) {
 		Set<String> authorities = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-		return authorities.contains(Authorities.TOTP_AUTH_AUTHORITY);
+		return authorities.contains(Authorities.ROLE_ADMIN);
 	}
 	
 }

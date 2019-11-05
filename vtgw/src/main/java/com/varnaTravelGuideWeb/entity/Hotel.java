@@ -4,7 +4,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+
 @Document
+@ToString
+@Getter
+@Setter
 public class Hotel {
 		
 		@Id
@@ -25,39 +33,5 @@ public class Hotel {
 			this.placeId = placeId;
 			this.numbOfStars = numbOfStars;
 		}
-
-
-	    @Override
-	    public String toString() {
-	        return "Hotel{" +
-	                "_id=" + _id +
-	                ", placeId=" + placeId +
-	                ", numbOfStars=" + numbOfStars +
-	                '}';
-	    }
-
-	    public String getId() {
-	        return _id;
-	    }
-
-	    public void setId(String id) {
-	        this._id = id;
-	    }
-
-	    public String getPlaceId() {
-	        return placeId;
-	    }
-
-	    public void setPlaceId(String placeId) {
-	        this.placeId = placeId;
-	    }
-
-	    public int getNumbOfStars() {
-	        return numbOfStars;
-	    }
-
-	    public void setNumbOfStars(int numbOfStars) {
-	        this.numbOfStars = numbOfStars;
-	    }
 
 }
