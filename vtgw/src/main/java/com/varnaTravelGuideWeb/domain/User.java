@@ -1,38 +1,35 @@
-package com.varnaTravelGuideWeb.entity;
-
-import javax.validation.constraints.Email;
+package com.varnaTravelGuideWeb.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-	
+
+
+import java.util.Set;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
+
 import lombok.Getter;
 import lombok.Setter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@Document(collection = "user")
+
 @RequiredArgsConstructor
 @Getter
+@Setter
 @ToString
+@Document(collection = "user")
 public class User {
 	
 	@Id
 	private String id;
-	@NonNull		
-	@Indexed(unique=true)
-	private final String username;
-	@NonNull
-	private String firstName;
-	@NonNull
-	private String lastName;
-	@Email
-	@NonNull
+	@Indexed(unique = true, direction = IndexDirection.DESCENDING)
 	private String email;
-	@NonNull
 	private String password;
-	@Setter
-	private boolean verified;
-	
+	private String fullname;
+	private boolean enabled;
+	@DBRef
+	private Set<Role> roles;
 }

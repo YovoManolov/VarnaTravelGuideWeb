@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.varnaTravelGuideWeb.entity.User;
+import com.varnaTravelGuideWeb.domain.User;
 import com.varnaTravelGuideWeb.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
