@@ -3,9 +3,6 @@ package com.varnaTravelGuideWeb.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.varnaTravelGuideWeb.domain.User;
-
-
 public class PasswordConfirmedValidator implements ConstraintValidator<PasswordConfirmed, Object>{
 
 	@Override

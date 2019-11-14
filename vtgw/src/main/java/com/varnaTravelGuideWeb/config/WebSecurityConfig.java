@@ -16,7 +16,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-		
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -34,27 +33,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    auth
 	        .userDetailsService(userDetailsService)
 	        .passwordEncoder(bCryptPasswordEncoder);
-
 	}
 	
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception {
 
-		  http
-	        .authorizeRequests()
-	            .antMatchers("/","/login","/signup").permitAll()
-	            .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest().authenticated()
-	        .and()
-	        	.csrf().disable()
-	        .formLogin()
-	            .successHandler(customizeAuthenticationSuccessHandler)
-	            .loginPage("/login").failureUrl("/login?error=true")
-	            .usernameParameter("email")
-	            .passwordParameter("password")
-	        .and().logout()
-	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-	            .logoutSuccessUrl("/")
-	        .and().exceptionHandling();
+		   http
+           .authorizeRequests()
+           .antMatchers("/").permitAll()
+           .antMatchers("/login").permitAll()
+           .antMatchers("/signup").permitAll()
+           .antMatchers("/dashboard/**").hasAuthority("ADMIN").anyRequest()
+           .authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)
+           .loginPage("/login").failureUrl("/login?error=true")
+           .usernameParameter("email")
+           .passwordParameter("password")
+           .and().logout()
+           .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+           .logoutSuccessUrl("/").and().exceptionHandling();
+
 	}
 	
 	@Override

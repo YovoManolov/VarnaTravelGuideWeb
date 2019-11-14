@@ -19,29 +19,6 @@ spring:
       mongodb:
         uri: mongodb+srv://admin:"${mongoDBPass}"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: VarnaTravelGuide
-
-security:
-   basic:
-      oauth2: 
-#         sso:
-#          login-path: /login
-         resource: 
-            userInfoUri: https://www.googleapis.com/varnatravelguideweb
-            preferTokenInfo: true
-         client:
-            useCurrentUri: false
-            preEstablishedRedirectUri: http://localhost:8080/index
-            registratsion:
-              google:
-                clientId: ${googleClientId}
-                clientSecret: ${googleClientSecret}
-                
-                accessTokenUri: https://www.googleapis.com/oauth2/v3/token
-                userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
-                scope:  
-                  - email
-                  - profile
-                  - openid
        
 logging:
   level:
