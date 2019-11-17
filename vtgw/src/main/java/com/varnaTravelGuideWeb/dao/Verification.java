@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;

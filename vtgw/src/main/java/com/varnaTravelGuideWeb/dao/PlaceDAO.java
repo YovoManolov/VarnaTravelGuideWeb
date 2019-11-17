@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Document
-public class Place {
+public class PlaceDAO {
 	
 	@Id
 	@Field("_id")
@@ -25,8 +25,8 @@ public class Place {
     private String description;
     private Integer typeOfPlace;
     private Integer priceCategoryId;
-    private ArrayList<Image> images;
-    private WorkHours workHours;
+    private ArrayList<ImageDAO> images;
+    private WorkHoursDAO workHours;
 
 	
 }

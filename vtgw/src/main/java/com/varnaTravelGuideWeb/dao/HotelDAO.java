@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class Hotel {
+public class HotelDAO {
 		
 		@Id
 	    private String _id ;
@@ -21,14 +21,14 @@ public class Hotel {
 	    private String placeId;
 	    private int numbOfStars;
 
-	    public Hotel(String _id, String placeId, int numbOfStars) {
+	    public HotelDAO(String _id, String placeId, int numbOfStars) {
 			super();
 			this._id = _id;
 			this.placeId = placeId;
 			this.numbOfStars = numbOfStars;
 		}
 	    
-		public Hotel(String placeId, int numbOfStars) {
+		public HotelDAO(String placeId, int numbOfStars) {
 			super();
 			this.placeId = placeId;
 			this.numbOfStars = numbOfStars;

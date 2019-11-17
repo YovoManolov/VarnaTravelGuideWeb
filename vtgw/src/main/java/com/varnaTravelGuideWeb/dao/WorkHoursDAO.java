@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +14,7 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @ToString
 @Document
-public class WorkHours {
+public class WorkHoursDAO {
 		
 		@Id
 		private String _id;

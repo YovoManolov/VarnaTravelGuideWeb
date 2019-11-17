@@ -4,12 +4,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.varnaTravelGuideWeb.domain.Role;
 import com.varnaTravelGuideWeb.repository.RoleRepository;
 
 
 @SpringBootApplication
+@EnableMongoRepositories("com.varnaTravelGuideWeb") 
 public class VtgwApplication {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +13,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Document
-public class PriceCategory {
+public class PriceCategoryDAO {
 		
 		@Id
 		@Field("_id")
@@ -21,8 +21,8 @@ public class PriceCategory {
 	    private Integer priceCategory_id ;
 	    private String description;
 
-	    public PriceCategory(){}
-	    public PriceCategory(String description) {
+	    public PriceCategoryDAO(){}
+	    public PriceCategoryDAO(String description) {
 	        this.description = description;
 	    }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.varnaTravelGuideWeb.entity.PriceCategory;
+import com.varnaTravelGuideWeb.dao.PriceCategoryDAO;
 import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
 
 @RestController
@@ -26,11 +26,11 @@ public class PriceCategoryController {
 	
 
 	@RequestMapping(value = "/{placeId}", method = RequestMethod.GET)
-	public PriceCategory getPriceCategoryById(@PathVariable String priceCategoryId) {
+	public PriceCategoryDAO getPriceCategoryById(@PathVariable String priceCategoryId) {
 		
 		LOG.info("Getting restaurant with placeId: {}.", priceCategoryId);
 		
-		Optional<PriceCategory> optionalPlace= priceCategoryRepository.getPriceCategoryById(priceCategoryId);
+		Optional<PriceCategoryDAO> optionalPlace= priceCategoryRepository.getPriceCategoryById(priceCategoryId);
 		if(optionalPlace.isPresent()) {
 		    // value is present inside Optional
 			return optionalPlace.get();

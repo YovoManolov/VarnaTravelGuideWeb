@@ -3,11 +3,11 @@ package com.varnaTravelGuideWeb.repository;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.varnaTravelGuideWeb.entity.Place;
+import com.varnaTravelGuideWeb.dao.PlaceDAO;
 
 
-public interface PlaceRepository extends MongoRepository<Place, String> {
+public interface PlaceRepository extends MongoRepository<PlaceDAO, String> {
 
-	Optional<Place> findById(String placeId); 
+	Optional<PlaceDAO> findById(String placeId); 
 	
 }

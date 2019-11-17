@@ -1,7 +1,8 @@
 package com.varnaTravelGuideWeb.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.varnaTravelGuideWeb.entity.Verification;
+
+import com.varnaTravelGuideWeb.dao.Verification;
 
 public interface VerificationCodeRepository extends MongoRepository<Verification, String>{
 	

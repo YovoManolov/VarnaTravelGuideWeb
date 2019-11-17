@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @Document
 @Getter
 @RequiredArgsConstructor
-public class Restaurant {
+public class RestaurantDAO {
 	
 	@Id
 	private String _id ;

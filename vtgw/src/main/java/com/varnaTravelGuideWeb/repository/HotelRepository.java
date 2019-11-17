@@ -4,11 +4,11 @@ import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.varnaTravelGuideWeb.entity.Hotel;
+import com.varnaTravelGuideWeb.dao.HotelDAO;
 
-public interface HotelRepository extends MongoRepository<Hotel, String> {
+public interface HotelRepository extends MongoRepository<HotelDAO, String> {
 
-	Optional<Hotel> findByPlaceId(String placeId);
+	Optional<HotelDAO> findByPlaceId(String placeId);
 
 } 
  

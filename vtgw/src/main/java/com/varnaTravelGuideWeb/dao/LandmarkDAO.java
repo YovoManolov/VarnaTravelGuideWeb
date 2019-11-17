@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.entity;
+package com.varnaTravelGuideWeb.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Document
-public class Landmark {
+public class LandmarkDAO {
 
 		@Id
 	    private String _id ;
@@ -18,13 +18,13 @@ public class Landmark {
 	    private String placeId;
 	    private String entranceTicket;
 
-	    public Landmark(String _id , String placeId, String entranceTicket) {
+	    public LandmarkDAO(String _id , String placeId, String entranceTicket) {
 	        this._id = _id;
 	        this.placeId = placeId;
 	        this.entranceTicket = entranceTicket;
 	    }
 
-	    public Landmark(String placeId, String entranceTicket) {
+	    public LandmarkDAO(String placeId, String entranceTicket) {
 	        this.placeId = placeId;
 	        this.entranceTicket = entranceTicket;
 	    }

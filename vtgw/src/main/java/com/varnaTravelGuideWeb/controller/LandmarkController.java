@@ -5,17 +5,16 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.varnaTravelGuideWeb.entity.Landmark;
+import com.varnaTravelGuideWeb.dao.LandmarkDAO;
 import com.varnaTravelGuideWeb.repository.LandmarkRepository;
 
-@RestController
-@RequestMapping(value = "/")
+@Controller
 public class LandmarkController {
 		
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
@@ -26,11 +25,11 @@ public class LandmarkController {
 	}
 	
 	@RequestMapping(value = "/{placeId}", method = RequestMethod.GET)
-	public Landmark getLandmarkByPlaceId(@PathVariable String placeId) {
+	public LandmarkDAO getLandmarkByPlaceId(@PathVariable String placeId) {
 		
 		LOG.info("Getting Landmark with placeId: {}.", placeId);
 		
-		Optional<Landmark> optionalLandmark = landmarkRepository.findByPlaceId(placeId);
+		Optional<LandmarkDAO> optionalLandmark = landmarkRepository.findByPlaceId(placeId);
 		if(optionalLandmark.isPresent()) {
 		    // value is present inside Optional
 			return optionalLandmark.get();
@@ -42,12 +41,12 @@ public class LandmarkController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Landmark> getAllLandmarks(){
+	public List<LandmarkDAO> getAllLandmarks(){
 		LOG.info("Getting all Landmarks.");
 		return landmarkRepository.findAll();
 	}
 
-	public Landmark addNewLandmark(@RequestBody Landmark landmark){
+	public LandmarkDAO addNewLandmark(@RequestBody LandmarkDAO landmark){
 		LOG.info("Saving landmark.");
 		return landmarkRepository.save(landmark);
 	}

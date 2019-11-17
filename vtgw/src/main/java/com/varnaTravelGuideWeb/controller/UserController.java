@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.varnaTravelGuideWeb.domain.User;
 import com.varnaTravelGuideWeb.repository.UserRepository;
 
-@RestController
-@RequestMapping(value = "/")
+@Controller
 public class UserController {
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 

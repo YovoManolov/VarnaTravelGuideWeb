@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.varnaTravelGuideWeb.entity.Restaurant;
+import com.varnaTravelGuideWeb.dao.RestaurantDAO;
 
-public interface RestaurantRepository extends MongoRepository<Restaurant, String> {
+public interface RestaurantRepository extends MongoRepository<RestaurantDAO, String> {
 
-	Optional<Restaurant> findByPlaceId(String placeId);
+	Optional<RestaurantDAO> findByPlaceId(String placeId);
 }

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.varnaTravelGuideWeb.entity.Verification;
+import com.varnaTravelGuideWeb.dao.Verification;
 import com.varnaTravelGuideWeb.repository.VerificationCodeRepository;
 
 import lombok.RequiredArgsConstructor;

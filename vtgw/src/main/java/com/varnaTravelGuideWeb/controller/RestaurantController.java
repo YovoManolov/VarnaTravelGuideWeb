@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-import com.varnaTravelGuideWeb.entity.Restaurant;
+import com.varnaTravelGuideWeb.dao.RestaurantDAO;
 import com.varnaTravelGuideWeb.repository.RestaurantRepository;
 
-@RestController
-@RequestMapping(value = "/")
+@Controller
 public class RestaurantController {
 	
     private final Logger LOG = LoggerFactory.getLogger(getClass());
@@ -26,11 +25,11 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping(value = "/{placeId}", method = RequestMethod.GET)
-	public Restaurant getRestaurantByPlaceId(@PathVariable String placeId) {
+	public RestaurantDAO getRestaurantByPlaceId(@PathVariable String placeId) {
 		
 		LOG.info("Getting restaurant with placeId: {}.", placeId);
 		
-		Optional<Restaurant> optionalRestaurant = restaurantRepository.findByPlaceId(placeId);
+		Optional<RestaurantDAO> optionalRestaurant = restaurantRepository.findByPlaceId(placeId);
 		if(optionalRestaurant.isPresent()) {
 		    // value is present inside Optional
 			return optionalRestaurant.get();
@@ -42,12 +41,12 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Restaurant> getAllrestaurants(){
+	public List<RestaurantDAO> getAllrestaurants(){
 		LOG.info("Getting all restaurants.");
 		return restaurantRepository.findAll();
 	}
 
-	public Restaurant addNewRestaurant(@RequestBody Restaurant restaurant){
+	public RestaurantDAO addNewRestaurant(@RequestBody RestaurantDAO restaurant){
 		LOG.info("Saving restaurant.");
 		return restaurantRepository.save(restaurant);
 	}

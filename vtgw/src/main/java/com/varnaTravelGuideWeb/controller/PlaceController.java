@@ -1,5 +1,4 @@
 package com.varnaTravelGuideWeb.controller;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -9,16 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-import com.varnaTravelGuideWeb.entity.Place;
+import com.varnaTravelGuideWeb.dao.PlaceDAO;
 import com.varnaTravelGuideWeb.repository.PlaceRepository;
 
-
-
-
-@RestController
-@RequestMapping(value = "/")
+@Controller
 public class PlaceController {
 	
 	  private final Logger LOG = LoggerFactory.getLogger(getClass());
@@ -29,11 +24,11 @@ public class PlaceController {
 		}
 		
 		@RequestMapping(value = "/{placeId}", method = RequestMethod.GET)
-		public Place getPlaceById(@PathVariable String placeId) {
+		public PlaceDAO getPlaceById(@PathVariable String placeId) {
 			
 			LOG.info("Getting restaurant with placeId: {}.", placeId);
 			
-			Optional<Place> optionalPlace= placeRepository.findById(placeId);
+			Optional<PlaceDAO> optionalPlace= placeRepository.findById(placeId);
 			if(optionalPlace.isPresent()) {
 			    // value is present inside Optional
 				return optionalPlace.get();
@@ -45,14 +40,13 @@ public class PlaceController {
 		}
 		
 		@RequestMapping(value = "", method = RequestMethod.GET)
-		public List<Place> getAllplaces(){
+		public List<PlaceDAO> getAllplaces(){
 			LOG.info("Getting all restaurants.");
 			return placeRepository.findAll();
 		}
 
-		public Place addNewPlace(@RequestBody Place place){
+		public PlaceDAO addNewPlace(@RequestBody PlaceDAO place){
 			LOG.info("Saving restaurant.");
 			return placeRepository.save(place);
 		}
-		
 }

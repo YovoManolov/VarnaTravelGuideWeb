@@ -17,10 +17,11 @@ spring:
         repositories: 
           enabled: true
       mongodb:
-        uri: mongodb+srv://admin:"${mongoDBPass}"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        uri:  mongodb+srv://admin:v9rlO0w1QoiWw8Bt@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+#        mongodb+srv://admin:"${mongoDBPass}"@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: VarnaTravelGuide
        
-logging:
+logging:  
   level:
     root: INFO
     com.memorynotfound: INFO
