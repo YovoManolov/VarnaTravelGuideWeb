@@ -10,13 +10,13 @@ import com.varnaTravelGuideWeb.repository.UserRepository;
 public class UserServiceImpl implements UserService {
 
 	private UserRepository userRepository;
-	private UserFormToUser userFormToUser;
+	//private UserFormToUser userFormToUser;
 	
-	@Autowired
-    public UserServiceImpl(UserRepository UserRepository, UserFormToUser UserFormToUser) {
-    	this.userRepository = userRepository;
-    	this.userFormToUser = userFormToUser;
-    }
+	/*
+	 * @Autowired public UserServiceImpl(UserRepository UserRepository,
+	 * UserFormToUser UserFormToUser) { this.userRepository = userRepository;
+	 * //this.userFormToUser = userFormToUser; }
+	 */
 	
 	@Override
 	public List<User> listAll() {

@@ -1,10 +1,10 @@
 spring:
   application:
     name: vtgw
-  cloud:
-    vault:
-      host: localhost
-      port: 8200
-      scheme: http
-      authentication: TOKEN
-      token: ${vault_token}
+#  cloud:
+#    vault:
+#      host: localhost
+#      port: 8200
+#      scheme: http
+#      authentication: TOKEN
+#      token: ${vault_token}

@@ -10,14 +10,14 @@ import com.varnaTravelGuideWeb.repository.RestaurantRepository;
 public class RestaurantServiceImpl implements RestaurantService {
 
 	private RestaurantRepository restaurantRepository;
-	private RestaurantFormToRestaurant restaurantFormToRestaurant;
+//	private RestaurantFormToRestaurant restaurantFormToRestaurant;
 	
-	@Autowired
-    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, RestaurantFormToRestaurant restaurantFormToRestaurant) {
-    	this.restaurantRepository = restaurantRepository;
-    	this.restaurantFormToRestaurant = restaurantFormToRestaurant;
-    }
-	
+	/*
+	 * @Autowired public RestaurantServiceImpl(RestaurantRepository
+	 * restaurantRepository, RestaurantFormToRestaurant restaurantFormToRestaurant)
+	 * { this.restaurantRepository = restaurantRepository;
+	 * //this.restaurantFormToRestaurant = restaurantFormToRestaurant; }
+	 */
 	@Override
 	public List<RestaurantDAO> listAll() {
 		// TODO Auto-generated method stub
@@ -43,9 +43,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public RestaurantDAO saveOrUpdateRestaurantForm(RestaurantDAO restaurantForm) {
+	public RestaurantDAO saveOrUpdatePriceCategoryForm(RestaurantDAO restaurantForm) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	/*
+	 * @Override public RestaurantDAO saveOrUpdateRestaurantForm(RestaurantDAO
+	 * restaurantForm) { // TODO Auto-generated method stub return null; }
+	 */
 
 }

@@ -10,14 +10,13 @@ import com.varnaTravelGuideWeb.repository.HotelRepository;
 public class HotelServiceImpl implements HotelService {
 
     private HotelRepository hotelRepository;
-    private HotelFormToHotel hotelFormToHotel;
+   // private HotelFormToHotel hotelFormToHotel;
     
-    @Autowired
-	public HotelServiceImpl(HotelRepository hotelRepository, HotelFormToHotel hotelFormToHotel) {
-		this.hotelRepository = hotelRepository;
-		this.hotelFormToHotel = hotelFormToHotel;
-	}
-
+	/*
+	 * @Autowired public HotelServiceImpl(HotelRepository hotelRepository,
+	 * HotelFormToHotel hotelFormToHotel) { this.hotelRepository = hotelRepository;
+	 * //this.hotelFormToHotel = hotelFormToHotel; }
+	 */
 	@Override
 	public List<HotelDAO> listAll() {
 		// TODO Auto-generated method stub

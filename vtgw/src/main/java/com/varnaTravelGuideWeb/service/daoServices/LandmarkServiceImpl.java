@@ -10,20 +10,18 @@ import com.varnaTravelGuideWeb.repository.LandmarkRepository;
 public class LandmarkServiceImpl implements LandmarkService {
 
 	private LandmarkRepository landmarkRepository;
-	private LandmarkFormToLandmark landmarkFormToLandmark;
+	//private LandmarkFormToLandmark landmarkFormToLandmark;
 	   
-	@Autowired
-	public LandmarkServiceImpl(LandmarkRepository landmarkRepository, LandmarkFormToLandmark landmarkFormToLandmark) {
-		super();
-		this.landmarkRepository = landmarkRepository;
-		this.landmarkFormToLandmark = landmarkFormToLandmark;
-	}
+	/*
+	 * @Autowired public LandmarkServiceImpl(LandmarkRepository landmarkRepository,
+	 * LandmarkFormToLandmark landmarkFormToLandmark) { super();
+	 * this.landmarkRepository = landmarkRepository; //this.landmarkFormToLandmark =
+	 * landmarkFormToLandmark; }
+	 */
 	
 	@Override
 	public List<LandmarkDAO> listAll() {
-		List<Product> landmarks = new ArrayList<>();
-		landmarkRepository.findAll().forEach(products::add); //fun with Java 8
-        return products;
+        return null;
 	}
 
 	

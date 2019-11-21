@@ -18,7 +18,7 @@
 
 <body>
 	
-	<th:block layout:replace="~{templates/htmlFragments/fragmentHeader.html}"></th:block>
+	<th:block layout:replace="~{*/htmlFragments/fragmentHeader.html}"></th:block>
 	<form action="#" style="border:1px solid #ccc" th:action="@{/register}" th:object="${user}" method="POST" enctype="utf8">
 		<section id="loginform" class="outer-wrapper">
 			<div class="inner-wrapper">

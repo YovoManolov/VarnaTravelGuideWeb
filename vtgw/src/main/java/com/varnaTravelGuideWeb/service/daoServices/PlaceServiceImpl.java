@@ -10,13 +10,13 @@ import com.varnaTravelGuideWeb.repository.PlaceRepository;
 public class PlaceServiceImpl implements PlaceService {
 
 	private PlaceRepository placeRepository;
-	private PlaceFormToPlace placeFormToPlace;
+	//private PlaceFormToPlace placeFormToPlace;
 	   
-	@Autowired
-	public PlaceServiceImpl(PlaceRepository placeRepository, PlaceFormToPlace placeFormToPlace) {
-		this.placeRepository = placeRepository;
-		this.placeFormToPlace = placeFormToPlace;
-	}
+	/*
+	 * @Autowired public PlaceServiceImpl(PlaceRepository placeRepository,
+	 * PlaceFormToPlace placeFormToPlace) { this.placeRepository = placeRepository;
+	 * //this.placeFormToPlace = placeFormToPlace; }
+	 */
 	
 	@Override
 	public List<PlaceDAO> listAll() {

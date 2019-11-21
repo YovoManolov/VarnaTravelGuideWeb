@@ -10,14 +10,15 @@ import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
 public class PriceCategoryServiceImpl implements PriceCategoryService {
 
 	private PriceCategoryRepository priceCategoryRepository;
-	private PriceCategoryFormToPriceCategory priceCategoryFormToPriceCategory;
+	//private PriceCategoryFormToPriceCategory priceCategoryFormToPriceCategory;
 	
-	@Autowired
-    public PriceCategoryServiceImpl(PriceCategoryRepository priceCategoryRepository, PriceCategoryFormToPriceCategory priceCategoryFormToPriceCategory) {
-    	this.priceCategoryRepository = priceCategoryRepository;
-    	this.priceCategoryFormToPriceCategory = priceCategoryFormToPriceCategory;
-    }     
-	
+	/*
+	 * @Autowired public PriceCategoryServiceImpl(PriceCategoryRepository
+	 * priceCategoryRepository, PriceCategoryFormToPriceCategory
+	 * priceCategoryFormToPriceCategory) { this.priceCategoryRepository =
+	 * priceCategoryRepository; this.priceCategoryFormToPriceCategory =
+	 * priceCategoryFormToPriceCategory; }
+	 */	
 	@Override
 	public List<PriceCategoryDAO> listAll() {
 		// TODO Auto-generated method stub
