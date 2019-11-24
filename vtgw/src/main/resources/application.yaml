@@ -17,13 +17,15 @@ spring:
         repositories: 
           enabled: true
       mongodb:
-        uri:  mongodb+srv://admin:v9rlO0w1QoiWw8Bt@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        uri:  mongodb+srv://admin:xxxxxxxxxxx@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: VarnaTravelGuide
-       
+        
+        
 logging:  
   level:
     root: DEBUG
     com.memorynotfound: DEBUG
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
+    org.mongodb: ERROR
    

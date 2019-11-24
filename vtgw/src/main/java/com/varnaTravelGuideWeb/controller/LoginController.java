@@ -31,8 +31,6 @@ public class LoginController {
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public ModelAndView signup() {
 	    ModelAndView modelAndView = new ModelAndView();
-	    User user = new User();
-	    modelAndView.addObject("user", user);
 	    modelAndView.setViewName("signup");
 	    return modelAndView;
 	}
