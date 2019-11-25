@@ -15,6 +15,8 @@
 	<description>project for Spring Boot</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
 	</properties>
 <!-- 	<dependencyManagement>
@@ -45,11 +47,11 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 	<!-- 	<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-mail</artifactId>
@@ -62,10 +64,6 @@
 	        <groupId>org.springframework.vault</groupId>
 	        <artifactId>spring-vault-core</artifactId>
 	    </dependency> -->
-<!-- 	<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-web</artifactId>
-		</dependency> -->
 		<dependency>
 		    <groupId>org.webjars</groupId>
 		    <artifactId>popper.js</artifactId>
