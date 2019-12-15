@@ -1,0 +1,19 @@
+spring:
+    security:
+       user:
+         name: user
+         password: password
+    data: 
+      mongo:
+        repositories: 
+          enabled: true	
+      mongodb:
+        uri: mongodb+srv://admin:v9rlO0w1QoiWw8Bt@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        database: varnaTravelGuideDB
+     
+logging:  
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.mongodb: INFO

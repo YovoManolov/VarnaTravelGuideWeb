@@ -21,11 +21,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @Document(collection = "user")
-public class User {
+public class User {	
 	
 	@Id
-	private String id;
-	@Indexed(unique = true, direction = IndexDirection.DESCENDING)
+	private String userId;
 	private String email;
 	private String password;
 	private String fullname;

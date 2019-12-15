@@ -27,12 +27,37 @@ public class LoginController {
 	    modelAndView.setViewName("login");
 	    return modelAndView;
 	}
+	
+	
+	@RequestMapping(value = {"/","/login"} , method = RequestMethod.POST)
+	public ModelAndView login(@Valid User user, BindingResult bindingResult) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+	    User userExists = userService.findUserByEmail(user.getEmail());
+	    
+	    if (userExists == null) {
+	        bindingResult
+	                .rejectValue("email", "error.user",
+	                        "There is no user registered with the username provided");
+	    }
+	    if (bindingResult.hasErrors()) {
+	        modelAndView.setViewName("login");
+	    } else {
+	        modelAndView.addObject("successMessage", "User has loged in successfully");
+	        modelAndView.addObject("user", new User());
+	        modelAndView.setViewName("home");
+
+	    }
+	    return modelAndView;
+	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public ModelAndView signup() {
-	    ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.setViewName("signup");
-	    return modelAndView;
+		ModelAndView modelAndView = new ModelAndView();
+        User user = new User();
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("signup");
+        return modelAndView;
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -68,7 +93,7 @@ public class LoginController {
 	    return modelAndView;
 	}
 	
-	@RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/home"}, method = RequestMethod.GET)
 	public ModelAndView home() {
 	    ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName("home");

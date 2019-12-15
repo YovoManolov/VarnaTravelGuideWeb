@@ -23,6 +23,9 @@ public class CustomizeAuthenticationSuccessHandler
 		     if ("ADMIN".equals(auth.getAuthority())) {
 		         response.sendRedirect("/dashboard");
 		     }
+		     else if("USER".equals(auth.getAuthority())) {
+		         response.sendRedirect("/home");
+		     }
 		 }
 	}
 
