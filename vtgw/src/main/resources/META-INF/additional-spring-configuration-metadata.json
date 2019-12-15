@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "thymeleaf",
+    "type": "java.lang.String",
+    "description": "A description for 'thymeleaf'"
+  },
+  {
+    "name": "cache",
+    "type": "java.lang.String",
+    "description": "A description for 'cache'"
+  },
+  {
+    "name": "spring.data.mongo.repositories.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.data.mongo.repositories.enabled'"
+  }
+]}
