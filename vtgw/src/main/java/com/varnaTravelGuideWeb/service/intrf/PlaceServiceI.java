@@ -2,6 +2,7 @@ package com.varnaTravelGuideWeb.service.intrf;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
@@ -16,5 +17,7 @@ public interface PlaceServiceI {
 	public Place updatePlace(Place newPlace, String id ) throws RecordNotFoundException;
 		
 	public Place createPlace(Place newPlace) throws RecordNotFoundException;
+
+	public ResponseEntity<Object> deletePlaceById(String placeId) throws RecordNotFoundException;
 
 }
