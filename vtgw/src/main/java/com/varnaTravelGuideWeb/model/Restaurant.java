@@ -6,9 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Document
 @Getter
+@Setter
 @RequiredArgsConstructor
 public class Restaurant {
 	
