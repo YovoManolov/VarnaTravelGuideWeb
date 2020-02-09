@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import com.varnaTravelGuideWeb.service.CustomUserDetailsService;
 
@@ -39,10 +37,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
  	protected void configure(HttpSecurity http) throws Exception {
- 		http.authorizeRequests().antMatchers("/public/**").permitAll().anyRequest()
- 				.hasRole("USER").and()
- 				.formLogin().loginPage("/login") // enable form based log in
- 				.permitAll();
+		 http
+	      .authorizeRequests()
+	          .anyRequest().authenticated()
+	          .and()
+	      .formLogin()
+	          .loginPage("/login") 
+	          .permitAll();        
  	}
 	
 	/*
@@ -64,7 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+		web.ignoring().antMatchers(	"/signup/**","/resources/**", "/static/**", "/css/**"
+									, "/webjars/*","/js/**", "/images/**");
 	}
 
 	 @Bean

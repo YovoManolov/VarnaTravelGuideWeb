@@ -20,10 +20,6 @@ import com.varnaTravelGuideWeb.domain.User;
 import com.varnaTravelGuideWeb.repository.RoleRepository;
 import com.varnaTravelGuideWeb.repository.UserRepository;
 
-/**
- *
- * @author didin
- */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -71,5 +67,4 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
     }
-
 }
