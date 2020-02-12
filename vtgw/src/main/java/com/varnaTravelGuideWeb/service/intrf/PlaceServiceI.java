@@ -18,6 +18,6 @@ public interface PlaceServiceI {
 		
 	public Place createPlace(Place newPlace) throws RecordNotFoundException;
 
-	public ResponseEntity<Object> deletePlaceById(String placeId) throws RecordNotFoundException;
+	public ResponseEntity<String> deletePlaceById(String placeId) throws RecordNotFoundException;
 
 }

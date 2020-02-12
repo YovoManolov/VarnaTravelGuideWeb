@@ -26,20 +26,20 @@ public class RestaurantController {
 	RestaurantServiceImpl restaurantServiceImpl;
 
 	@GetMapping("/getAll")
-	public ResponseEntity<List<Restaurant>> getAllShoppingRestaurants() {
+	public ResponseEntity<List<Restaurant>> getAllRestaurants() {
 		List<Restaurant> placeList = restaurantServiceImpl.getAllRestaurants();
 		return new ResponseEntity<List<Restaurant>>(placeList, HttpStatus.OK);
 	}
 
 	@GetMapping("/getOneById/{id}")
-	public ResponseEntity<Restaurant> getShoppingRestaurantById(@PathVariable(value = "id") String restaurantId)
+	public ResponseEntity<Restaurant> getRestaurantById(@PathVariable(value = "id") String restaurantId)
 			throws RecordNotFoundException {
 		Restaurant place = restaurantServiceImpl.getRestaurantById(restaurantId);
 		return new ResponseEntity<Restaurant>(place, HttpStatus.OK);
 	}
 
 	@PutMapping("/create")
-	public ResponseEntity<Restaurant> createShoppingHotel(@RequestBody Restaurant restaurant, @RequestBody Place place) {
+	public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant, @RequestBody Place place) {
 
 		Restaurant createdRestaurant = restaurantServiceImpl.createRestaurant(restaurant, place);
 		return new ResponseEntity<Restaurant>(createdRestaurant, HttpStatus.OK);

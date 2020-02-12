@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.varnaTravelGuideWeb.exception.NotAShoppingPlaceException;
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.service.impl.PlaceServiceImpl;
@@ -26,15 +27,23 @@ public class ShoppingPlaceController {
 
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Place>> getAllShoppingPlaces() {
-		List<Place> placeList = placeServiceImpl.getAllPlaces();
-		return new ResponseEntity<List<Place>>(placeList, HttpStatus.OK);
+		List<Place> shoppingPlacesList = placeServiceImpl.getAllPlaces();
+		shoppingPlacesList.stream().filter(place -> place.getTypeOfPlace().intValue() == 3 );
+		return new ResponseEntity<List<Place>>(shoppingPlacesList, HttpStatus.OK);
 	}
 
 	@GetMapping("/getOneById/{id}")
 	public ResponseEntity<Place> getShoppingPlaceById(@PathVariable(value = "id") String shoppingPlaceId)
-			throws RecordNotFoundException {
+			throws NotAShoppingPlaceException, RecordNotFoundException {
 		Place place = placeServiceImpl.getPlaceById(shoppingPlaceId);
-		return new ResponseEntity<Place>(place, HttpStatus.OK);
+		if(place.getTypeOfPlace() != 3) {
+			throw new NotAShoppingPlaceException("The place retrieved is not a shopping place! ");
+		}else {
+			return new ResponseEntity<Place>(place, HttpStatus.OK);
+		}
+			
+		
+	
 	}
 
 	@PutMapping("/create")
@@ -55,7 +64,7 @@ public class ShoppingPlaceController {
 	}
 
 	@DeleteMapping("deleteById/{id}")
-	public ResponseEntity<Object> deletePeriferialDeviceById(@PathVariable("id") String soppingPlaceId)
+	public ResponseEntity<String> deletePeriferialDeviceById(@PathVariable("id") String soppingPlaceId)
 			throws RecordNotFoundException {
 		return placeServiceImpl.deletePlaceById(soppingPlaceId);
 	}

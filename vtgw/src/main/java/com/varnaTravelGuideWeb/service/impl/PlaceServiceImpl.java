@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
@@ -69,7 +70,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	}
 
 	@Override
-	public ResponseEntity<Object> deletePlaceById(String placeId) throws RecordNotFoundException {
+	public ResponseEntity<String> deletePlaceById(String placeId) throws RecordNotFoundException {
 
 		Optional<Place> place = placeRepository.findById(placeId);
 
@@ -79,7 +80,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 			throw new RecordNotFoundException("No place record exist for given id:: " + placeId);
 		}
 
-		return ResponseEntity.ok().build();
+		return new ResponseEntity<String>("Place deleted", HttpStatus.OK);
 
 	}
 
