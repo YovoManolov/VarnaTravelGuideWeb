@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.model.Hotel;
@@ -13,6 +14,7 @@ import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.HotelRepository;
 import com.varnaTravelGuideWeb.service.intrf.HotelServiceI;
 
+@Service
 public class HotelServiceImpl implements HotelServiceI {
 
 	@Autowired 

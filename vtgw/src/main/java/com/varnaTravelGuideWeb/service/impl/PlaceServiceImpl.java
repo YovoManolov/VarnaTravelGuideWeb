@@ -7,26 +7,29 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
+import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.PlaceRepository;
 import com.varnaTravelGuideWeb.service.intrf.PlaceServiceI;
 
+@Service
 public class PlaceServiceImpl implements PlaceServiceI {
 
 	@Autowired
 	PlaceRepository placeRepository;
 
 	@Override
-	public List<Place> getAllPlaces() {
+	public List<Place> getAllPlaces() throws RecordsNotFoundException {
 
 		List<Place> placesList = placeRepository.findAll();
 
 		if (placesList.size() > 0) {
 			return placesList;
 		} else {
-			return new ArrayList<Place>();
+			throw new RecordsNotFoundException("Places not retrieved from DB! ");
 		}
 	}
 

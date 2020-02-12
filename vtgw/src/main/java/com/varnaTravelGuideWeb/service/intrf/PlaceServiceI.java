@@ -6,11 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
+import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
 
 public interface PlaceServiceI {
 
-	public List<Place> getAllPlaces();
+	public List<Place> getAllPlaces() throws RecordsNotFoundException;
 
 	public Place getPlaceById(@PathVariable(value = "id") String placeId) throws RecordNotFoundException;
 	

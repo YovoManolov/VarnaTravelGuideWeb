@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.varnaTravelGuideWeb.exception.NotAShoppingPlaceException;
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
+import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.service.impl.PlaceServiceImpl;
 
@@ -26,7 +28,7 @@ public class ShoppingPlaceController {
 	PlaceServiceImpl placeServiceImpl;
 
 	@GetMapping("/getAll")
-	public ResponseEntity<List<Place>> getAllShoppingPlaces() {
+	public ResponseEntity<List<Place>> getAllShoppingPlaces() throws RecordsNotFoundException {
 		List<Place> shoppingPlacesList = placeServiceImpl.getAllPlaces();
 		shoppingPlacesList.stream().filter(place -> place.getTypeOfPlace().intValue() == 3 );
 		return new ResponseEntity<List<Place>>(shoppingPlacesList, HttpStatus.OK);
@@ -41,12 +43,9 @@ public class ShoppingPlaceController {
 		}else {
 			return new ResponseEntity<Place>(place, HttpStatus.OK);
 		}
-			
-		
-	
 	}
 
-	@PutMapping("/create")
+	@PostMapping("/create")
 	public ResponseEntity<Place> createShoppingPlace(@RequestBody Place shoppingPlace) {
 
 		Place createdShoppingPlace = placeServiceImpl.createPlace(shoppingPlace);

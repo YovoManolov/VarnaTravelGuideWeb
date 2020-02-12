@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Document
+@Document(collection="landmarks")
 public class Landmark {
 
 		@Id

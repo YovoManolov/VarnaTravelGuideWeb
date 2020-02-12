@@ -13,6 +13,7 @@ spring:
      
 logging:  
   level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
     root: DEBUG
     org.springframework.web: DEBUG
     org.springframework.security: INFO

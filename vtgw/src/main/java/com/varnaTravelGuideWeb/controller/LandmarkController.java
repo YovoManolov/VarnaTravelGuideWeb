@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,9 +39,8 @@ public class LandmarkController {
 		return new ResponseEntity<Landmark>(landmark, HttpStatus.OK);
 	}
 
-	@PutMapping("/create")
+	@PostMapping("/create")
 	public ResponseEntity<Landmark> createLandmark(@RequestBody Landmark landmark, @RequestBody Place place) {
-
 		Landmark createdLandmark = landmarkServiceImpl.createLandmark(landmark, place);
 		return new ResponseEntity<Landmark>(createdLandmark, HttpStatus.OK);
 	}

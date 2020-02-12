@@ -9,10 +9,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-@Document
 @ToString
 @Getter
 @Setter
+@Document(collection="hotels")
 public class Hotel {
 		
 		@Id

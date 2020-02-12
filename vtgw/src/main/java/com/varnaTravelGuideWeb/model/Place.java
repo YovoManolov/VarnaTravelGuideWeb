@@ -37,6 +37,4 @@ public class Place {
     private ArrayList<Image> images;
 	@Field("workHours")
     private WorkHours workHours;
-
-	
 }
