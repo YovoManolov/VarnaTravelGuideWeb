@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
+import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.model.Restaurant;
 import com.varnaTravelGuideWeb.repository.RestaurantRepository;
@@ -50,10 +51,11 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	@Override
 	public Restaurant updateRestaurant(Restaurant newRestaurant, Place newPlace, String restaurantId) {
 		
-		Optional<Restaurant> updatedRestaurant = restaurantRepository.findById(restaurantId).map(restaurantUpdated -> {
+		Optional<Restaurant> updatedRestaurant = restaurantRepository.findById(restaurantId)
+										.map(restaurantUpdated -> {
 			
 			restaurantUpdated.setCuisine(newRestaurant.getCuisine());
-			placeServiceImpl.updatePlace(newPlace, newRestaurant.getPlaceId());
+			placeServiceImpl.updatePlace(newPlace, newRestaurant.getPlace());
 
 			return restaurantRepository.save(restaurantUpdated);
 		});
@@ -65,7 +67,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	public Restaurant createRestaurant(Restaurant newRestaurant, Place newPlace){
 		
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
-		 newRestaurant.setPlaceId(createdPlace.getId());
+		 newRestaurant.setPlace(createdPlace);
 		 
 		 return restaurantRepository.save(newRestaurant);
 	}

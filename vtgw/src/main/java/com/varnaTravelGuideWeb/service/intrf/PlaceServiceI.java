@@ -14,11 +14,11 @@ public interface PlaceServiceI {
 	public List<Place> getAllPlaces() throws RecordsNotFoundException;
 
 	public Place getPlaceById(@PathVariable(value = "id") String placeId) throws RecordNotFoundException;
-	
-	public Place updatePlace(Place newPlace, String id ) throws RecordNotFoundException;
 		
 	public Place createPlace(Place newPlace) throws RecordNotFoundException;
 
 	public ResponseEntity<String> deletePlaceById(String placeId) throws RecordNotFoundException;
+
+	Place updatePlace(Place newPlace, Place hotelPlace);
 
 }

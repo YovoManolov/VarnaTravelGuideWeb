@@ -1,12 +1,13 @@
 package com.varnaTravelGuideWeb.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Image {
 	
 	 	private String imageURL;

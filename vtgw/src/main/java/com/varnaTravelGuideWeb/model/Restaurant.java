@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import io.github.kaiso.relmongo.annotation.OneToOne;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -11,12 +13,12 @@ import lombok.Setter;
 @Document
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Restaurant {
 	
 	@Id
 	private String _id ;
-	@Field("place_id")
-    private String placeId;
+	@OneToOne
+	private Place place;
     private String cuisine;
 }

@@ -53,7 +53,7 @@ public class HotelServiceImpl implements HotelServiceI {
 		Optional<Hotel> updatedHotel = hotelRepository.findById(hotelId).map(hotelUpdated -> {
 			
 			hotelUpdated.setNumbOfStars(newHotel.getNumbOfStars());
-			placeServiceImpl.updatePlace(newPlace, newHotel.getPlaceId());
+			placeServiceImpl.updatePlace(newPlace, newHotel.getPlace());
 
 			return hotelRepository.save(hotelUpdated);
 		});
@@ -65,7 +65,7 @@ public class HotelServiceImpl implements HotelServiceI {
 	public Hotel createHotel(Hotel newHotel,Place newPlace){
 		
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
-		 newHotel.setPlaceId(createdPlace.getId());
+		 newHotel.setPlace(createdPlace);
 		 
 		 return hotelRepository.save(newHotel);
 	}

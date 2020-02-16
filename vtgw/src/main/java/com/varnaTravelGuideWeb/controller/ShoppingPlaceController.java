@@ -47,19 +47,18 @@ public class ShoppingPlaceController {
 
 	@PostMapping("/create")
 	public ResponseEntity<Place> createShoppingPlace(@RequestBody Place shoppingPlace) {
-
 		Place createdShoppingPlace = placeServiceImpl.createPlace(shoppingPlace);
 		return new ResponseEntity<Place>(createdShoppingPlace, HttpStatus.OK);
-
 	}
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Place> updatePlace(@RequestBody Place newShoppingPlace, @PathVariable String shoppingPlaceId)
 			throws RecordNotFoundException {
-
-		Place updatedShoppingPlace = placeServiceImpl.updatePlace(newShoppingPlace, shoppingPlaceId);
+		
+		Place currentShoppingPlace = placeServiceImpl.getPlaceById(shoppingPlaceId);
+		Place updatedShoppingPlace = placeServiceImpl.updatePlace(newShoppingPlace, currentShoppingPlace);
+		
 		return new ResponseEntity<Place>(updatedShoppingPlace, HttpStatus.OK);
-
 	}
 
 	@DeleteMapping("deleteById/{id}")

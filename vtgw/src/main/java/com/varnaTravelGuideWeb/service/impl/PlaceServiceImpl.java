@@ -46,25 +46,20 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	}
 
 	@Override
-	public Place updatePlace(Place newPlace, String placeId) {
+	public Place updatePlace(Place newPlace, Place currentPlace) {
 
-		Optional<Place> updatedPlace = placeRepository.findById(placeId).map(placeUpdated -> {
+			currentPlace.setAddress(newPlace.getAddress());
+			currentPlace.setContacts(newPlace.getContacts());
+			currentPlace.setDescription(newPlace.getDescription());
+			currentPlace.setImages(newPlace.getImages());
+			currentPlace.setLatitude(newPlace.getLatitude());
+			currentPlace.setLongitude(newPlace.getLongitude());
+			currentPlace.setName(newPlace.getName());
+			currentPlace.setPriceCategoryId(newPlace.getPriceCategoryId());
+			currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
+			currentPlace.setWorkHours(newPlace.getWorkHours());
 
-			placeUpdated.setAddress(newPlace.getAddress());
-			placeUpdated.setContacts(newPlace.getContacts());
-			placeUpdated.setDescription(newPlace.getDescription());
-			placeUpdated.setImages(newPlace.getImages());
-			placeUpdated.setLatitude(newPlace.getLatitude());
-			placeUpdated.setLongitude(newPlace.getLongitude());
-			placeUpdated.setName(newPlace.getName());
-			placeUpdated.setPriceCategoryId(newPlace.getPriceCategoryId());
-			placeUpdated.setTypeOfPlace(newPlace.getTypeOfPlace());
-			placeUpdated.setWorkHours(newPlace.getWorkHours());
-
-			return placeRepository.save(placeUpdated);
-		});
-
-		return (Place) updatedPlace.get();
+			return placeRepository.save(currentPlace);
 	}
 
 	@Override
@@ -87,4 +82,5 @@ public class PlaceServiceImpl implements PlaceServiceI {
 
 	}
 
+	
 }
