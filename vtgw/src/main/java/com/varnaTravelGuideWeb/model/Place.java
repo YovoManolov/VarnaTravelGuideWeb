@@ -1,16 +1,19 @@
 package com.varnaTravelGuideWeb.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @Document(collection="places")
 public class Place {
 	
@@ -22,9 +25,9 @@ public class Place {
 	@Field("address")
     private String address;
 	@Field("latitude")
-    private Double latitude;
+    private BigDecimal latitude;
 	@Field("longitude")
-    private Double longitude;
+    private BigDecimal longitude;
 	@Field("contacts")
     private String contacts;
 	@Field("description")
@@ -33,8 +36,6 @@ public class Place {
     private Integer typeOfPlace;
 	@Field("priceCategory")
     private Integer priceCategoryId;
-	@Field("images")
     private ArrayList<Image> images;
-	@Field("workHours")
     private WorkHours workHours;
 }
