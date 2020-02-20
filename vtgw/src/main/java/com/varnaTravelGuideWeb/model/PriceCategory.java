@@ -9,6 +9,7 @@ import io.github.kaiso.relmongo.annotation.JoinProperty;
 import io.github.kaiso.relmongo.annotation.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -16,15 +17,13 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 @Document
 public class PriceCategory {
 		
 		@Field("_id")
 		@Id
 	 	private String _id;
-	    @OneToOne(fetch=FetchType.EAGER)
-	    @JoinProperty(name = "place")
-		private Place place;
 	    private String description;
 
 }

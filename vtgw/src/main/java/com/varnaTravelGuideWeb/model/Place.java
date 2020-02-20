@@ -13,11 +13,13 @@ import io.github.kaiso.relmongo.annotation.JoinProperty;
 import io.github.kaiso.relmongo.annotation.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Document(collection="places")
 public class Place {
 	
@@ -28,7 +30,6 @@ public class Place {
     private String name;	
 	@Field("address")
     private String address;
-	@Field("location")
 	private Point location;
 	@Field("contacts")
     private String contacts;
@@ -36,9 +37,13 @@ public class Place {
     private String description;
 	@Field("typeOfPlace")
     private int typeOfPlace;
-    @OneToOne(fetch=FetchType.EAGER)
-    @JoinProperty(name = "priceCategory")
     private PriceCategory priceCategory;
+//    @OneToOne(mappedBy = "place", fetch = FetchType.EAGER)
+//    private Hotel hotel;
+//    @OneToOne(mappedBy = "place", fetch = FetchType.EAGER)
+//    private Landmark landmark;
+//    @OneToOne(mappedBy = "place", fetch = FetchType.EAGER)
+//    private Restaurant restaurant;
     private ArrayList<Image> images;
     private WorkHours workHours;
 }

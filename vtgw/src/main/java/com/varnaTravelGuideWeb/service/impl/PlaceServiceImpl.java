@@ -51,8 +51,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 			currentPlace.setContacts(newPlace.getContacts());
 			currentPlace.setDescription(newPlace.getDescription());
 			currentPlace.setImages(newPlace.getImages());
-			currentPlace.setLatitude(newPlace.getLatitude());
-			currentPlace.setLongitude(newPlace.getLongitude());
+			currentPlace.setLocation(newPlace.getLocation());
 			currentPlace.setName(newPlace.getName());
 			currentPlace.setPriceCategory(newPlace.getPriceCategory());
 			currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
