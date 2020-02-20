@@ -2,8 +2,9 @@ package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
+import io.github.kaiso.relmongo.annotation.FetchType;
+import io.github.kaiso.relmongo.annotation.JoinProperty;
 import io.github.kaiso.relmongo.annotation.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +21,8 @@ public class Hotel {
 		
 		@Id
 	    private String _id ;
-		@OneToOne
+	    @OneToOne(fetch=FetchType.EAGER)
+	    @JoinProperty(name = "place")
 		private Place place;
 	    private int numbOfStars;
 	    

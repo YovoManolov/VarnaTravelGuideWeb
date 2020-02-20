@@ -1,12 +1,16 @@
 package com.varnaTravelGuideWeb.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.mongodb.client.model.geojson.Point;
+
+import io.github.kaiso.relmongo.annotation.FetchType;
+import io.github.kaiso.relmongo.annotation.JoinProperty;
+import io.github.kaiso.relmongo.annotation.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,18 +28,17 @@ public class Place {
     private String name;	
 	@Field("address")
     private String address;
-	@Field("latitude")
-    private BigDecimal latitude;
-	@Field("longitude")
-    private BigDecimal longitude;
+	@Field("location")
+	private Point location;
 	@Field("contacts")
     private String contacts;
 	@Field("description")
     private String description;
 	@Field("typeOfPlace")
-    private Integer typeOfPlace;
-	@Field("priceCategory")
-    private Integer priceCategoryId;
+    private int typeOfPlace;
+    @OneToOne(fetch=FetchType.EAGER)
+    @JoinProperty(name = "priceCategory")
+    private PriceCategory priceCategory;
     private ArrayList<Image> images;
     private WorkHours workHours;
 }

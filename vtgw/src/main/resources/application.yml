@@ -8,7 +8,7 @@ spring:
         repositories: 
           enabled: true	
       mongodb:
-        uri: mongodb+srv://admin:v9rlO0w1QoiWw8Bt@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
+        uri: mongodb+srv://admin:admin@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: varnaTravelGuideDB
      
 logging:  

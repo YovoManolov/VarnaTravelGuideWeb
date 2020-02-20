@@ -1,16 +1,16 @@
 package com.varnaTravelGuideWeb.model;
 
-import java.util.ArrayList;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import io.github.kaiso.relmongo.annotation.FetchType;
+import io.github.kaiso.relmongo.annotation.JoinProperty;
+import io.github.kaiso.relmongo.annotation.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 
 @Getter
 @Setter
@@ -19,14 +19,12 @@ import lombok.ToString;
 @Document
 public class PriceCategory {
 		
-		@Id
 		@Field("_id")
-	 	private String id;
-	    private Integer priceCategory_id ;
+		@Id
+	 	private String _id;
+	    @OneToOne(fetch=FetchType.EAGER)
+	    @JoinProperty(name = "place")
+		private Place place;
 	    private String description;
 
-	    public PriceCategory(){}
-	    public PriceCategory(String description) {
-	        this.description = description;
-	    }
 }

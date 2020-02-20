@@ -1,6 +1,5 @@
 package com.varnaTravelGuideWeb.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,7 +54,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 			currentPlace.setLatitude(newPlace.getLatitude());
 			currentPlace.setLongitude(newPlace.getLongitude());
 			currentPlace.setName(newPlace.getName());
-			currentPlace.setPriceCategoryId(newPlace.getPriceCategoryId());
+			currentPlace.setPriceCategory(newPlace.getPriceCategory());
 			currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
 			currentPlace.setWorkHours(newPlace.getWorkHours());
 

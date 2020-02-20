@@ -2,7 +2,6 @@ package com.varnaTravelGuideWeb.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
-import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.LandmarkRepository;

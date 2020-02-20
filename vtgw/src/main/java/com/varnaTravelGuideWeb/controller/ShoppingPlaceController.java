@@ -30,7 +30,7 @@ public class ShoppingPlaceController {
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Place>> getAllShoppingPlaces() throws RecordsNotFoundException {
 		List<Place> shoppingPlacesList = placeServiceImpl.getAllPlaces();
-		shoppingPlacesList.stream().filter(place -> place.getTypeOfPlace().intValue() == 3 );
+		shoppingPlacesList.stream().filter(place -> place.getTypeOfPlace() == 3 );
 		return new ResponseEntity<List<Place>>(shoppingPlacesList, HttpStatus.OK);
 	}
 

@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
-import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.model.Restaurant;
 import com.varnaTravelGuideWeb.repository.RestaurantRepository;
