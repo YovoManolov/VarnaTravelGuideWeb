@@ -1,16 +1,18 @@
 package com.varnaTravelGuideWeb.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.mongodb.client.model.geojson.Point;
-
+import io.github.kaiso.relmongo.annotation.CascadeType;
 import io.github.kaiso.relmongo.annotation.FetchType;
 import io.github.kaiso.relmongo.annotation.JoinProperty;
-import io.github.kaiso.relmongo.annotation.OneToOne;
+import io.github.kaiso.relmongo.annotation.ManyToOne;
+import io.github.kaiso.relmongo.annotation.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,13 +33,14 @@ public class Place {
 	@Field("address")
     private String address;
 	@Field("location")
-	private Point location;
+	private GeoJsonPoint location;
 	@Field("contacts")
     private String contacts;
 	@Field("description")
     private String description;
 	@Field("typeOfPlace")
     private int typeOfPlace;
+	@ManyToOne(mappedBy="places")	
     private PriceCategory priceCategory;
 //    @OneToOne(mappedBy = "place", fetch = FetchType.EAGER)
 //    private Hotel hotel;
@@ -45,6 +48,8 @@ public class Place {
 //    private Landmark landmark;
 //    @OneToOne(mappedBy = "place", fetch = FetchType.EAGER)
 //    private Restaurant restaurant;
-    private ArrayList<Image> images;
+	@Field("images")
+    private List<Image> images;
+	@Field("workHours")
     private WorkHours workHours;
 }

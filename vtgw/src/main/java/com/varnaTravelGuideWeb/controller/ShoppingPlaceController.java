@@ -32,7 +32,7 @@ public class ShoppingPlaceController {
 		List<Place> shoppingPlacesList = placeServiceImpl.getAllPlaces();
 		shoppingPlacesList.stream().filter(place -> place.getTypeOfPlace() == 3 );
 		return new ResponseEntity<List<Place>>(shoppingPlacesList, HttpStatus.OK);
-	}
+	}		
 
 	@GetMapping("/getOneById/{id}")
 	public ResponseEntity<Place> getShoppingPlaceById(@PathVariable(value = "id") String shoppingPlaceId)
