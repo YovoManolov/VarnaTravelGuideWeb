@@ -30,6 +30,7 @@ public class Place {
     private String name;	
 	@Field("address")
     private String address;
+	@Field("location")
 	private Point location;
 	@Field("contacts")
     private String contacts;

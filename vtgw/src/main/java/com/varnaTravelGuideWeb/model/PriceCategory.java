@@ -17,7 +17,6 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
 @Document
 public class PriceCategory {
 		
