@@ -7,5 +7,5 @@ import com.varnaTravelGuideWeb.model.PriceCategory;
 
 public interface PriceCategoryServiceI {
 	
-	public PriceCategory getPriceCategoryByPlaceId(@PathVariable(value = "id") String placeId) throws RecordNotFoundException;
+	public String getPriceCategoryDescrByPlaceId(@PathVariable(value = "id") String placeId) throws RecordNotFoundException;
 }

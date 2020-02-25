@@ -42,5 +42,5 @@ public class Place {
 	@Field("workHours")
     private WorkHours workHours;
 	@Transient
-	private PriceCategory priceCategory;
+	private String priceCategoryDescription;
 }

@@ -3,19 +3,21 @@ package com.varnaTravelGuideWeb.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.model.PriceCategory;
 import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
 import com.varnaTravelGuideWeb.service.intrf.PriceCategoryServiceI;
 
-public class PriceCategorySerciceImpl implements PriceCategoryServiceI {
+@Service
+public class PriceCategoryServiceImpl implements PriceCategoryServiceI {
 	
 	@Autowired
 	PriceCategoryRepository priceCategoryRepository;
 
 	@Override
-	public PriceCategory getPriceCategoryByPlaceId(String placeId) throws RecordNotFoundException {
+	public String getPriceCategoryDescrByPlaceId(String placeId) throws RecordNotFoundException{
 		
 		List<PriceCategory> pcList = priceCategoryRepository.findAll();
 		
@@ -28,7 +30,7 @@ public class PriceCategorySerciceImpl implements PriceCategoryServiceI {
 		if(priceCategory == null) {
 			throw new RecordNotFoundException("PriceCategory not found for place with id: " + placeId + " !" );
 		}else {
-			return priceCategory;
+			return priceCategory.getDescription();
 		}
 	}
 

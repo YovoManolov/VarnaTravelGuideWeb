@@ -6,20 +6,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor 
+@NoArgsConstructor
 @Document(collection="landmarks")
 public class Landmark {
 
 		@Id
 	    private String _id;
 		private String place_id;
-		private Place place;
-		@Transient
-		private PriceCategory priceCategory;
 	    private String entranceTicket;
-
+		@Transient
+		private Place place;
 }

@@ -6,19 +6,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Document
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Restaurant {
 	
 	@Id
 	private String _id ;
 	private String place_id;
-	private Place place;
-	@Transient
-	private PriceCategory priceCategory;
     private String cuisine;
+	@Transient
+	private Place place;
 }

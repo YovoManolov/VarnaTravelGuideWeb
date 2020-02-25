@@ -20,9 +20,9 @@ import lombok.ToString;
 @Document
 public class WorkHours {
 	
-	    private Boolean is24h;
+	    private Boolean is_24H;
 	    @Nullable
-	    private String monFri;
+	    private String mond_fird;
 	    @Nullable
 	    private String sat;
 	    @Nullable

@@ -10,7 +10,7 @@ spring:
       mongodb:
         uri: mongodb+srv://admin:admin@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: varnaTravelGuideDB
-   
+        
 logging:  
   level:
     root: INFO
