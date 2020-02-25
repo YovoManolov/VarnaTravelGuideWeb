@@ -33,7 +33,7 @@ public class HotelController {
 	}
 
 	@GetMapping("/getOneById/{id}")
-	public ResponseEntity<Hotel> getShoppingHotelById(@PathVariable(value = "id") String hotelId)
+	public ResponseEntity<Hotel> getHotelById(@PathVariable(value = "id") String hotelId)
 			throws RecordNotFoundException {
 		Hotel hotel = hotelServiceImpl.getHotelById(hotelId);
 		return new ResponseEntity<Hotel>(hotel, HttpStatus.OK);

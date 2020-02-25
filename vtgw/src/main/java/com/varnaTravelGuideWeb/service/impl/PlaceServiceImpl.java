@@ -12,6 +12,7 @@ import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.PlaceRepository;
+import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
 import com.varnaTravelGuideWeb.service.intrf.PlaceServiceI;
 
 @Service
@@ -19,6 +20,9 @@ public class PlaceServiceImpl implements PlaceServiceI {
 
 	@Autowired
 	PlaceRepository placeRepository;
+	
+	@Autowired 
+	PriceCategoryRepository priceCategoryRepository;
 
 	@Override
 	public List<Place> getAllPlaces() throws RecordsNotFoundException {
@@ -36,7 +40,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	public Place getPlaceById(String placeId) throws RecordNotFoundException {
 
 		Optional<Place> place = placeRepository.findById(placeId);
-
+		
 		if (place.isPresent()) {
 			return place.get();
 		} else {
@@ -53,7 +57,6 @@ public class PlaceServiceImpl implements PlaceServiceI {
 			currentPlace.setImages(newPlace.getImages());
 			currentPlace.setLocation(newPlace.getLocation());
 			currentPlace.setName(newPlace.getName());
-			currentPlace.setPriceCategory(newPlace.getPriceCategory());
 			currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
 			currentPlace.setWorkHours(newPlace.getWorkHours());
 

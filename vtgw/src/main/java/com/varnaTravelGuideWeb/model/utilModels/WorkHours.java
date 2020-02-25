@@ -1,4 +1,4 @@
-package com.varnaTravelGuideWeb.model;
+package com.varnaTravelGuideWeb.model.utilModels;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,7 +20,6 @@ import lombok.ToString;
 @Document
 public class WorkHours {
 	
-	    
 	    private Boolean is24h;
 	    @Nullable
 	    private String monFri;

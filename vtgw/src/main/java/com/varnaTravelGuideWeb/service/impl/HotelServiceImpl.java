@@ -27,6 +27,15 @@ public class HotelServiceImpl implements HotelServiceI {
 	public List<Hotel> getAllHotels() {
 		
 		List<Hotel> hotelList = hotelRepository.findAll();
+		for(Hotel h : hotelList) {
+		   try {
+				Place p = placeServiceImpl.getPlaceById(h.getPlace_id());
+				h.setPlace(p);
+			} catch (RecordNotFoundException e) {
+				e.printStackTrace();
+			}
+		   
+		}
 		
         if(hotelList.size() > 0) {
             return hotelList;
@@ -40,8 +49,12 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 		Optional<Hotel> hotel =  hotelRepository.findById(hotelId);
 	    
+		
 	    if(hotel.isPresent()) {
-            return hotel.get();
+	    	Hotel hotelObj =  hotel.get();
+	    	Place p = placeServiceImpl.getPlaceById(hotelObj.getPlace_id());
+	    	hotelObj.setPlace(p);
+	    	return hotelObj;
         } else {
             throw new RecordNotFoundException("No hotel record exist for given hotelId");
         }
