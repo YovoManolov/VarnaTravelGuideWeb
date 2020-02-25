@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
+import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.LandmarkRepository;
@@ -29,22 +30,37 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		List<Landmark> landmarkList = landmarkRepository.findAll();
 		
         if(landmarkList.size() > 0) {
+        	
+        	for(Landmark l : landmarkList) {
+       		   try {
+       				Place p = placeServiceImpl.getPlaceById(l.getPlace_id());
+       				l.setPlace(p);
+       			} catch (RecordNotFoundException e) {
+       				e.printStackTrace();
+       			}
+       		}
+        	
             return landmarkList;
         } else {
             return new ArrayList<Landmark>();
         }
+        
 	}
 	
 	@Override
 	public Landmark getLandmarkById(String landmarkId) throws RecordNotFoundException {
 		
 		Optional<Landmark> landmark =  landmarkRepository.findById(landmarkId);
-	    
-	    if(landmark.isPresent()) {
-            return landmark.get();
+		
+		if(landmark.isPresent()) {
+	    	Landmark landmarkObj =  landmark.get();
+	    	Place p = placeServiceImpl.getPlaceById(landmarkObj.getPlace_id());
+	    	landmarkObj.setPlace(p);
+	    	return landmarkObj;
         } else {
             throw new RecordNotFoundException("No landmark record exist for given landmarkId");
         }
+	
 	}
 
 	@Override

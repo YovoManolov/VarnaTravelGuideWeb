@@ -30,7 +30,6 @@ public class PriceCategorySerciceImpl implements PriceCategoryServiceI {
 		}else {
 			return priceCategory;
 		}
-		
 	}
 
 }

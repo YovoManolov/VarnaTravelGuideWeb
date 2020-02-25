@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
+import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.PlaceRepository;
 import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
@@ -22,13 +23,21 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	PlaceRepository placeRepository;
 	
 	@Autowired 
-	PriceCategoryRepository priceCategoryRepository;
+	PriceCategorySerciceImpl priceCategorySerciceImpl;
 
 	@Override
 	public List<Place> getAllPlaces() throws RecordsNotFoundException {
 
 		List<Place> placesList = placeRepository.findAll();
-
+		for(Place place : placesList) {
+			try {
+				place.setPriceCategory(priceCategorySerciceImpl
+							.getPriceCategoryByPlaceId(place.get_id()));
+			} catch (RecordNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		if (placesList.size() > 0) {
 			return placesList;
 		} else {
@@ -42,7 +51,11 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		Optional<Place> place = placeRepository.findById(placeId);
 		
 		if (place.isPresent()) {
-			return place.get();
+			Place p = place.get();
+			p.setPriceCategory(priceCategorySerciceImpl
+						.getPriceCategoryByPlaceId(p.get_id()));
+			return p;
+		
 		} else {
 			throw new RecordNotFoundException("No place record exist for given placeId");
 		}
@@ -50,7 +63,9 @@ public class PlaceServiceImpl implements PlaceServiceI {
 
 	@Override
 	public Place updatePlace(Place newPlace, Place currentPlace) {
-
+            
+			//currently does not support priceCategory update;
+		
 			currentPlace.setAddress(newPlace.getAddress());
 			currentPlace.setContacts(newPlace.getContacts());
 			currentPlace.setDescription(newPlace.getDescription());

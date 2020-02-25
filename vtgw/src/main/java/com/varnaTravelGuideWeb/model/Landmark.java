@@ -1,6 +1,7 @@
 package com.varnaTravelGuideWeb.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +18,8 @@ public class Landmark {
 	    private String _id;
 		private String place_id;
 		private Place place;
+		@Transient
+		private PriceCategory priceCategory;
 	    private String entranceTicket;
 
 }

@@ -27,17 +27,19 @@ public class HotelServiceImpl implements HotelServiceI {
 	public List<Hotel> getAllHotels() {
 		
 		List<Hotel> hotelList = hotelRepository.findAll();
-		for(Hotel h : hotelList) {
-		   try {
-				Place p = placeServiceImpl.getPlaceById(h.getPlace_id());
-				h.setPlace(p);
-			} catch (RecordNotFoundException e) {
-				e.printStackTrace();
-			}
-		   
-		}
 		
         if(hotelList.size() > 0) {
+        	
+        	for(Hotel h : hotelList) {
+     		   try {
+     				Place p = placeServiceImpl.getPlaceById(h.getPlace_id());
+     				h.setPlace(p);
+     			} catch (RecordNotFoundException e) {
+     				e.printStackTrace();
+     			}
+     		   
+     		}
+        	
             return hotelList;
         } else {
             return new ArrayList<Hotel>();
@@ -48,7 +50,6 @@ public class HotelServiceImpl implements HotelServiceI {
 	public Hotel getHotelById(String hotelId) throws RecordNotFoundException {
 		
 		Optional<Hotel> hotel =  hotelRepository.findById(hotelId);
-	    
 		
 	    if(hotel.isPresent()) {
 	    	Hotel hotelObj =  hotel.get();
@@ -98,7 +99,6 @@ public class HotelServiceImpl implements HotelServiceI {
 	    }
 		
 		return ResponseEntity.ok().build();
-	
 	}
 
 }
