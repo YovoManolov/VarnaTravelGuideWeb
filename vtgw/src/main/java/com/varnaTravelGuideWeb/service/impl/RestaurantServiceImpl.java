@@ -59,7 +59,6 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
         } else {
         	 throw new RecordNotFoundException("No restaurant record exist for given restaurantId");
         }
-		
 	}
 
 	@Override
@@ -101,7 +100,6 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	    }
 		
 		return ResponseEntity.ok().build();
-	
 	}
 
 }
