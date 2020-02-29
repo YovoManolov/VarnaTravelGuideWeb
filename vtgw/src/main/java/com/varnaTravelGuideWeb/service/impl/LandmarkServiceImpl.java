@@ -64,7 +64,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	}
 
 	@Override
-	public Landmark updateLandmark(Landmark newLandmark, Place newPlace, String landmarkId) {
+	public Landmark updateLandmark(Landmark newLandmark, String landmarkId) {
 		
 		Optional<Landmark> updatedLandmark = landmarkRepository.findById(landmarkId).map(landmarkUpdated -> {
 			
@@ -72,7 +72,13 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 				landmarkUpdated.setEntranceTicket(newLandmark.getEntranceTicket());
 			}
 			
-			placeServiceImpl.updatePlace(newPlace, newLandmark.getPlace());
+			Place currentLandmarkPlace = null;
+			try {
+				currentLandmarkPlace = placeServiceImpl.getPlaceById(newLandmark.getPlace().get_id());
+			} catch (RecordNotFoundException e) {
+				e.printStackTrace();
+			}
+			placeServiceImpl.updatePlace(newLandmark.getPlace(),currentLandmarkPlace);
 
 			return landmarkRepository.save(landmarkUpdated);
 		});

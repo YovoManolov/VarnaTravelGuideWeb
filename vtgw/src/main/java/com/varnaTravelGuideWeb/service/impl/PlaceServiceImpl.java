@@ -3,6 +3,7 @@ package com.varnaTravelGuideWeb.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -64,6 +65,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		} else {
 			throw new RecordNotFoundException("No place record exist for given placeId");
 		}
+		
 	}
 
 	@Override
@@ -103,27 +105,26 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		    	currentPlace.setWorkHours(newPlace.getWorkHours());
 		    }
 		    
-			currentPlace.setDescription(newPlace.getDescription());
-			currentPlace.setImages(newPlace.getImages());
-			currentPlace.setLocation(newPlace.getLocation());
-			currentPlace.setName(newPlace.getName());
-			currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
-			currentPlace.setWorkHours(newPlace.getWorkHours());
 			return placeRepository.save(currentPlace);
 	}
 
 	@Override
 	public Place createPlace(Place newPlace) {
+		if(newPlace.get_id() == null || newPlace.get_id().isEmpty()) {
+			newPlace.set_id(new ObjectId().toString());
+		}
+		
 		priceCategorySerciceImpl.addNewPlaceIdByPriceCategoryDescr(
 					newPlace.getPriceCategoryDescription(),newPlace);
+		
 		return placeRepository.save(newPlace);
 	}
 
 	@Override
 	public ResponseEntity<String> deletePlaceById(String placeId) throws RecordNotFoundException {
-
+			
 		Optional<Place> place = placeRepository.findById(placeId);
-
+				
 		if (place.isPresent()) {
 			placeRepository.deleteById(placeId);
 		} else {

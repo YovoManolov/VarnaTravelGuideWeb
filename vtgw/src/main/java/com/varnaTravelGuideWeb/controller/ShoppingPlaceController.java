@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,17 +46,18 @@ public class ShoppingPlaceController {
 		}
 	}
 
-	@PostMapping("/create")
+	@PutMapping("/create")	
 	public ResponseEntity<Place> createShoppingPlace(@RequestBody Place shoppingPlace) {
 		Place createdShoppingPlace = placeServiceImpl.createPlace(shoppingPlace);
 		return new ResponseEntity<Place>(createdShoppingPlace, HttpStatus.OK);
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Place> updatePlace(@RequestBody Place newShoppingPlace, @PathVariable String shoppingPlaceId)
+	@PutMapping("/update/{placeId}")
+	public ResponseEntity<Place> updatePlace(@RequestBody Place newShoppingPlace, 
+							@PathVariable(value = "placeId") String placeId)
 			throws RecordNotFoundException {
 		
-		Place currentShoppingPlace = placeServiceImpl.getPlaceById(shoppingPlaceId);
+		Place currentShoppingPlace = placeServiceImpl.getPlaceById(placeId);
 		Place updatedShoppingPlace = placeServiceImpl.updatePlace(newShoppingPlace, currentShoppingPlace);
 		
 		return new ResponseEntity<Place>(updatedShoppingPlace, HttpStatus.OK);

@@ -62,16 +62,23 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	}
 
 	@Override
-	public Restaurant updateRestaurant(Restaurant newRestaurant, Place newPlace, String restaurantId) {
+	public Restaurant updateRestaurant(Restaurant newRestaurant, String restaurantId) {
 		
 		Optional<Restaurant> updatedRestaurant = restaurantRepository.findById(restaurantId)
 										.map(restaurantUpdated -> {
 			
 			if(restaurantUpdated.getCuisine().compareTo(newRestaurant.getCuisine()) != 0) {
 				restaurantUpdated.setCuisine(newRestaurant.getCuisine());
-			}			
-			placeServiceImpl.updatePlace(newPlace, newRestaurant.getPlace());
-
+			}	
+			
+			Place currentRestaurantPlace = null;
+			try {
+				currentRestaurantPlace = placeServiceImpl.getPlaceById(newRestaurant.getPlace().get_id());
+			} catch (RecordNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			placeServiceImpl.updatePlace(newRestaurant.getPlace(),currentRestaurantPlace);
 			return restaurantRepository.save(restaurantUpdated);
 		});
 

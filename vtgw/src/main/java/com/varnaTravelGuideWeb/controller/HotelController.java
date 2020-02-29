@@ -1,4 +1,4 @@
-	package com.varnaTravelGuideWeb.controller;
+package com.varnaTravelGuideWeb.controller;
 
 import java.util.List;
 
@@ -48,11 +48,10 @@ public class HotelController {
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Hotel> updateHotel(@RequestBody Hotel newHotel, 
-			@RequestBody Place newPlace, @PathVariable(value = "id") String hotelId)
+	public ResponseEntity<Hotel> updateHotel(@RequestBody Hotel newHotel,  @PathVariable(value = "id") String hotelId)
 			throws RecordNotFoundException {
 		
-		Hotel updatedShoppingHotel = hotelServiceImpl.updateHotel(newHotel, newPlace, hotelId);
+		Hotel updatedShoppingHotel = hotelServiceImpl.updateHotel(newHotel ,hotelId);
 		return new ResponseEntity<Hotel>(updatedShoppingHotel, HttpStatus.OK);
 	}
 

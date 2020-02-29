@@ -15,7 +15,7 @@ public interface HotelServiceI {
 
 	public Hotel getHotelById(@PathVariable(value = "id") String hotelId) throws RecordNotFoundException;
 
-	public Hotel updateHotel(Hotel newHotel, Place place, String hotelId) throws RecordNotFoundException;
+	public Hotel updateHotel(Hotel newHotel, String hotelId) throws RecordNotFoundException;
 
 	public Hotel createHotel(Hotel newHotel, Place newPlace);
 

@@ -15,7 +15,7 @@ public interface LandmarkServiceI {
 
 	public Landmark getLandmarkById(@PathVariable(value = "id") String landmarkId) throws RecordNotFoundException;
 
-	public Landmark updateLandmark(Landmark newLandmark, Place place, String landmarkId) throws RecordNotFoundException;
+	public Landmark updateLandmark(Landmark newLandmark, String landmarkId) throws RecordNotFoundException;
 
 	public Landmark createLandmark(Landmark newLandmark, Place newPlace);
 

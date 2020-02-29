@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
+import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.service.impl.LandmarkServiceImpl;
@@ -46,10 +47,11 @@ public class LandmarkController {
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Landmark> updateLandmark(@RequestBody Landmark newLandmark, @RequestBody Place newPlace,
+	public ResponseEntity<Landmark> updateLandmark(@RequestBody Landmark newLandmark,
 			@PathVariable(value = "id") String landmarkId) throws RecordNotFoundException {
 
-		Landmark updatedLandmark = landmarkServiceImpl.updateLandmark(newLandmark, newPlace, landmarkId);
+		Landmark updatedLandmark = landmarkServiceImpl.updateLandmark(newLandmark, landmarkId);
+		
 		return new ResponseEntity<Landmark>(updatedLandmark, HttpStatus.OK);
 	}
 

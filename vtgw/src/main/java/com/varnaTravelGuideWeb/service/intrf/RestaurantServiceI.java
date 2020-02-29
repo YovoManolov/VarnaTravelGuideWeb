@@ -15,7 +15,7 @@ public interface RestaurantServiceI {
 
 	public Restaurant getRestaurantById(@PathVariable(value = "id") String restaurantId) throws RecordNotFoundException;
 
-	public Restaurant updateRestaurant(Restaurant newRestaurant, Place place, String restaurantId) throws RecordNotFoundException;
+	public Restaurant updateRestaurant(Restaurant newRestaurant, String restaurantId) throws RecordNotFoundException;
 
 	public Restaurant createRestaurant(Restaurant newRestaurant, Place newPlace);
 

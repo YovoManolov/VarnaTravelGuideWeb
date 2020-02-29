@@ -51,7 +51,7 @@ public class RestaurantController {
 	public ResponseEntity<Restaurant> updateRestaurant(@RequestBody Restaurant newRestaurant,
 					@RequestBody Place newPlace, @PathVariable(value = "id") String restaurantId) throws RecordNotFoundException {
 
-		Restaurant updatedShoppingRestaurant = restaurantServiceImpl.updateRestaurant(newRestaurant, newPlace ,restaurantId);
+		Restaurant updatedShoppingRestaurant = restaurantServiceImpl.updateRestaurant(newRestaurant, restaurantId);
 		return new ResponseEntity<Restaurant>(updatedShoppingRestaurant, HttpStatus.OK);
 
 	}

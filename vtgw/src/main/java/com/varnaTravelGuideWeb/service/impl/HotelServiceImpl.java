@@ -61,15 +61,21 @@ public class HotelServiceImpl implements HotelServiceI {
 	}
 
 	@Override
-	public Hotel updateHotel(Hotel newHotel, Place newPlace, String hotelId) {
+	public Hotel updateHotel(Hotel newHotel, String hotelId) {
 		
 		Optional<Hotel> updatedHotel = hotelRepository.findById(hotelId).map(hotelUpdated -> {
 			
 			if(hotelUpdated.getNumbOfStars() !=  newHotel.getNumbOfStars()) {
 				hotelUpdated.setNumbOfStars(newHotel.getNumbOfStars());
 			}
-			
-			placeServiceImpl.updatePlace(newPlace, newHotel.getPlace());
+		
+			Place currentHotelPlace = null;
+			try {
+				currentHotelPlace = placeServiceImpl.getPlaceById(hotelUpdated.getPlace().get_id());
+			} catch (RecordNotFoundException e) {
+				e.printStackTrace();
+			}
+			placeServiceImpl.updatePlace(newHotel.getPlace(), currentHotelPlace);
 
 			return hotelRepository.save(hotelUpdated);
 		});
