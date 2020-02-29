@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,6 +16,8 @@ import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
 import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Place;
+import com.varnaTravelGuideWeb.model.utilModels.Image;
+import com.varnaTravelGuideWeb.model.utilModels.WorkHours;
 import com.varnaTravelGuideWeb.repository.PlaceRepository;
 import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
 import com.varnaTravelGuideWeb.service.intrf.PlaceServiceI;
@@ -63,22 +69,53 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	@Override
 	public Place updatePlace(Place newPlace, Place currentPlace) {
             
-			//currently does not support priceCategory update;
+			//currently price category description update is not implemented ! 
 		
-			currentPlace.setAddress(newPlace.getAddress());
-			currentPlace.setContacts(newPlace.getContacts());
+			if(currentPlace.getName().compareToIgnoreCase(newPlace.getName().trim()) != 0 ) {
+		    	currentPlace.setName(newPlace.getName());
+		    }
+		    
+		    if(currentPlace.getAddress().compareToIgnoreCase(newPlace.getAddress().trim()) != 0 ) {
+		    	currentPlace.setAddress(newPlace.getAddress());
+		    }
+		    
+		    if(currentPlace.getLocation().equals(newPlace.getLocation()) == false ) {
+		    	currentPlace.setLocation(newPlace.getLocation());
+		    }
+		    
+		    if(currentPlace.getContacts().compareToIgnoreCase(newPlace.getContacts().trim()) != 0 ) {
+		    	currentPlace.setContacts(newPlace.getContacts());
+		    }
+		    
+		    if(currentPlace.getDescription().compareToIgnoreCase(newPlace.getDescription().trim()) != 0 ) {
+		    	currentPlace.setDescription(newPlace.getDescription());
+		    }
+		    
+		    if(currentPlace.getTypeOfPlace() != newPlace.getTypeOfPlace()) {
+		    	currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
+		    }
+		    
+		    if(currentPlace.getAddress().compareToIgnoreCase(newPlace.getAddress().trim()) != 0 ) {
+		    	currentPlace.setAddress(newPlace.getAddress());
+		    }
+		    
+		    if(!currentPlace.getWorkHours().equals(newPlace.getWorkHours())) {
+		    	currentPlace.setWorkHours(newPlace.getWorkHours());
+		    }
+		    
 			currentPlace.setDescription(newPlace.getDescription());
 			currentPlace.setImages(newPlace.getImages());
 			currentPlace.setLocation(newPlace.getLocation());
 			currentPlace.setName(newPlace.getName());
 			currentPlace.setTypeOfPlace(newPlace.getTypeOfPlace());
 			currentPlace.setWorkHours(newPlace.getWorkHours());
-
 			return placeRepository.save(currentPlace);
 	}
 
 	@Override
 	public Place createPlace(Place newPlace) {
+		priceCategorySerciceImpl.addNewPlaceIdByPriceCategoryDescr(
+					newPlace.getPriceCategoryDescription(),newPlace);
 		return placeRepository.save(newPlace);
 	}
 

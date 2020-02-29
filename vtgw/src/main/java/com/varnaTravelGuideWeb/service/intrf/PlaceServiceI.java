@@ -19,6 +19,6 @@ public interface PlaceServiceI {
 
 	public ResponseEntity<String> deletePlaceById(String placeId) throws RecordNotFoundException;
 
-	Place updatePlace(Place newPlace, Place hotelPlace);
+	Place updatePlace(Place newPlace, Place currentPlace);
 
 }

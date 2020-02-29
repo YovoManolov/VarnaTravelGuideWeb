@@ -9,11 +9,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection="restaurants")
 public class Restaurant {
 	
 	@Id

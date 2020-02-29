@@ -67,7 +67,9 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 		Optional<Restaurant> updatedRestaurant = restaurantRepository.findById(restaurantId)
 										.map(restaurantUpdated -> {
 			
-			restaurantUpdated.setCuisine(newRestaurant.getCuisine());
+			if(restaurantUpdated.getCuisine().compareTo(newRestaurant.getCuisine()) != 0) {
+				restaurantUpdated.setCuisine(newRestaurant.getCuisine());
+			}			
 			placeServiceImpl.updatePlace(newPlace, newRestaurant.getPlace());
 
 			return restaurantRepository.save(restaurantUpdated);

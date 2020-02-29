@@ -37,7 +37,6 @@ public class HotelServiceImpl implements HotelServiceI {
      			} catch (RecordNotFoundException e) {
      				e.printStackTrace();
      			}
-     		   
      		}
         	
             return hotelList;
@@ -66,7 +65,10 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 		Optional<Hotel> updatedHotel = hotelRepository.findById(hotelId).map(hotelUpdated -> {
 			
-			hotelUpdated.setNumbOfStars(newHotel.getNumbOfStars());
+			if(hotelUpdated.getNumbOfStars() !=  newHotel.getNumbOfStars()) {
+				hotelUpdated.setNumbOfStars(newHotel.getNumbOfStars());
+			}
+			
 			placeServiceImpl.updatePlace(newPlace, newHotel.getPlace());
 
 			return hotelRepository.save(hotelUpdated);

@@ -68,7 +68,10 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		
 		Optional<Landmark> updatedLandmark = landmarkRepository.findById(landmarkId).map(landmarkUpdated -> {
 			
-			landmarkUpdated.setEntranceTicket(newLandmark.getEntranceTicket());
+			if(landmarkUpdated.getEntranceTicket() !=  newLandmark.getEntranceTicket()) {
+				landmarkUpdated.setEntranceTicket(newLandmark.getEntranceTicket());
+			}
+			
 			placeServiceImpl.updatePlace(newPlace, newLandmark.getPlace());
 
 			return landmarkRepository.save(landmarkUpdated);

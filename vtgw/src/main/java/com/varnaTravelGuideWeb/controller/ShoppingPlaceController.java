@@ -1,6 +1,7 @@
 package com.varnaTravelGuideWeb.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,11 +27,12 @@ public class ShoppingPlaceController {
 
 	@Autowired
 	PlaceServiceImpl placeServiceImpl;
-
+	
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Place>> getAllShoppingPlaces() throws RecordsNotFoundException {
-		List<Place> shoppingPlacesList = placeServiceImpl.getAllPlaces();
-		shoppingPlacesList.stream().filter(place -> place.getTypeOfPlace() == 3 );
+		
+		List<Place> shoppingPlacesList = placeServiceImpl.getAllPlaces().stream()
+					.filter(place -> place.getTypeOfPlace() == 3 ).collect(Collectors.toList());
 		return new ResponseEntity<List<Place>>(shoppingPlacesList, HttpStatus.OK);
 	}		
 
