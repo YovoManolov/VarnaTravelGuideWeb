@@ -95,6 +95,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 		 Place newPlace = newRestaurant.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newRestaurant.setPlace(createdPlace);
+		 newRestaurant.setPlace_id(createdPlace.get_id());
 		 
 		 return restaurantRepository.save(newRestaurant);
 	}
@@ -102,10 +103,16 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	@Override
 	public ResponseEntity<Object> deleteRestaurant(String restaurantId) throws RecordNotFoundException {
 		
-		Optional<Restaurant> periferialDevice = restaurantRepository
+		Optional<Restaurant> retaurantOptional = restaurantRepository
 				.findById(restaurantId);
 		
-		if(periferialDevice.isPresent()) {
+		if(retaurantOptional.isPresent()) {
+			Place restaurantPlace = placeServiceImpl.getPlaceById(
+					retaurantOptional.get().getPlace_id()
+					);
+		
+			placeServiceImpl.deletePlaceById(restaurantPlace.get_id());
+			
 			restaurantRepository.deleteById(restaurantId);
 		} else {
 	        throw new RecordNotFoundException(

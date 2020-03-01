@@ -102,6 +102,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 
 	@Override
 	public Place createPlace(Place newPlace) {
+		
 		if(newPlace.get_id() == null || newPlace.get_id().isEmpty()) {
 			newPlace.set_id(new ObjectId().toString());
 		}
@@ -118,6 +119,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		Optional<Place> place = placeRepository.findById(placeId);
 				
 		if (place.isPresent()) {
+			priceCategorySerciceImpl.deletePlaceFromPCByPlaceId(placeId);
 			placeRepository.deleteById(placeId);
 		} else {
 			throw new RecordNotFoundException("No place record exist for given id:: " + placeId);

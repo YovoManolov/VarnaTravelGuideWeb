@@ -93,7 +93,7 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 		 Place newPlace = newHotel.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
-		 newHotel.setPlace(createdPlace);
+		 newHotel.setPlace_id(createdPlace.get_id());
 		 
 		 return hotelRepository.save(newHotel);
 	}
@@ -101,10 +101,17 @@ public class HotelServiceImpl implements HotelServiceI {
 	@Override
 	public ResponseEntity<Object> deleteHotel(String hotelId) throws RecordNotFoundException {
 		
-		Optional<Hotel> periferialDevice = hotelRepository
+		Optional<Hotel> hotelOptional = hotelRepository
 				.findById(hotelId);
+	
 		
-		if(periferialDevice.isPresent()) {
+		if(hotelOptional.isPresent()) {
+			Place hotelPlace = placeServiceImpl.getPlaceById(
+						hotelOptional.get().getPlace_id()
+						);
+			
+			placeServiceImpl.deletePlaceById(hotelPlace.get_id());
+						
 			hotelRepository.deleteById(hotelId);
 		} else {
 	        throw new RecordNotFoundException(

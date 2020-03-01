@@ -52,4 +52,38 @@ public class PriceCategoryServiceImpl implements PriceCategoryServiceI {
 		}
 	}
 
+	@Override
+	public String deletePlaceFromPCByPlaceId(String placeId) throws RecordNotFoundException {
+		
+		List<PriceCategory> pcList = priceCategoryRepository.findAll();
+		
+		PriceCategory priceCategory  = pcList.stream().filter(
+					pc -> pc.getPlaces().stream().anyMatch(
+								place-> ( place.get_id().compareTo(placeId) == 0 )
+					) 
+		).findFirst().orElse(null);
+		
+		List<Place> listOfPlacesForSpecificCategory = priceCategory.getPlaces();
+		
+		int indexToDelete;
+		Place deletedPlaceFromPC = null;
+		for(Place p : listOfPlacesForSpecificCategory) {
+			if(p.get_id().compareTo(placeId) == 0) {
+				indexToDelete = listOfPlacesForSpecificCategory.
+						indexOf(p);
+				deletedPlaceFromPC = listOfPlacesForSpecificCategory.remove(indexToDelete);
+			}
+			
+		}
+		
+		if(deletedPlaceFromPC == null) {
+			throw new RecordNotFoundException("Place with id " + placeId 
+			+" was not found in priceCategory :" + priceCategory.getDescription() +" !" );
+		}else {
+			return "Place with id " + deletedPlaceFromPC.get_id() +" was deleted "
+					+ "from priceCategory :" + priceCategory.getDescription() ;
+		}
+		
+	}
+
 }

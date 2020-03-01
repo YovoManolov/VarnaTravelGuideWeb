@@ -38,12 +38,11 @@ public class HotelController {
 		return new ResponseEntity<Hotel>(hotel, HttpStatus.OK);
 	}
 
-	@PostMapping("/create")
+	@PutMapping("/create")
 	public ResponseEntity<Hotel> createShoppingHotel(@RequestBody Hotel hotel) {
 
 		Hotel createdHotel = hotelServiceImpl.createHotel(hotel);
 		return new ResponseEntity<Hotel>(createdHotel, HttpStatus.OK);
-
 	}
 
 	@PutMapping("/update/{id}")

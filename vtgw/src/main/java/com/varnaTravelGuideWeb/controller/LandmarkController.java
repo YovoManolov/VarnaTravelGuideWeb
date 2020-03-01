@@ -38,7 +38,7 @@ public class LandmarkController {
 		return new ResponseEntity<Landmark>(landmark, HttpStatus.OK);
 	}
 
-	@PostMapping("/create")
+	@PutMapping("/create")
 	public ResponseEntity<Landmark> createLandmark(@RequestBody Landmark landmark) {
 		Landmark createdLandmark = landmarkServiceImpl.createLandmark(landmark);
 		return new ResponseEntity<Landmark>(createdLandmark, HttpStatus.OK);

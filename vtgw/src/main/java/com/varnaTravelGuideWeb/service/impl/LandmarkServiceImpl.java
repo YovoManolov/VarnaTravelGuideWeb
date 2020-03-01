@@ -56,6 +56,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	    	Landmark landmarkObj =  landmark.get();
 	    	Place p = placeServiceImpl.getPlaceById(landmarkObj.getPlace_id());
 	    	landmarkObj.setPlace(p);
+	    	
 	    	return landmarkObj;
         } else {
             throw new RecordNotFoundException("No landmark record exist for given landmarkId");
@@ -96,6 +97,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		 Place newPlace = newLandmark.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newLandmark.setPlace(createdPlace);
+		 newLandmark.setPlace_id(createdPlace.get_id());
 		 
 		 return landmarkRepository.save(newLandmark);
 	}
@@ -103,10 +105,16 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	@Override
 	public ResponseEntity<Object> deleteLandmark(String landmarkId) throws RecordNotFoundException {
 		
-		Optional<Landmark> periferialDevice = landmarkRepository
+		Optional<Landmark> landmarkOptional = landmarkRepository
 				.findById(landmarkId);
 		
-		if(periferialDevice.isPresent()) {
+		if(landmarkOptional.isPresent()) {
+			Place landmarkPlace = placeServiceImpl.getPlaceById(
+					landmarkOptional.get().getPlace_id()
+					);
+		
+			placeServiceImpl.deletePlaceById(landmarkPlace.get_id());
+			
 			landmarkRepository.deleteById(landmarkId);
 		} else {
 	        throw new RecordNotFoundException(
