@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -84,8 +85,13 @@ public class HotelServiceImpl implements HotelServiceI {
 	}
 
 	@Override
-	public Hotel createHotel(Hotel newHotel,Place newPlace){
+	public Hotel createHotel(Hotel newHotel){
 		
+		 if(newHotel.get_id() == null || newHotel.get_id().isEmpty()) {
+			newHotel.set_id(new ObjectId().toString());
+		 }
+		
+		 Place newPlace = newHotel.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newHotel.setPlace(createdPlace);
 		 

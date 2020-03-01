@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
-import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.model.Restaurant;
 import com.varnaTravelGuideWeb.repository.RestaurantRepository;
@@ -86,8 +86,13 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	}
 
 	@Override
-	public Restaurant createRestaurant(Restaurant newRestaurant, Place newPlace){
-		
+	public Restaurant createRestaurant(Restaurant newRestaurant){
+		 
+		 if(newRestaurant.get_id() == null || newRestaurant.get_id().isEmpty()) {
+			 newRestaurant.set_id(new ObjectId().toString());
+		 }
+		 
+		 Place newPlace = newRestaurant.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newRestaurant.setPlace(createdPlace);
 		 

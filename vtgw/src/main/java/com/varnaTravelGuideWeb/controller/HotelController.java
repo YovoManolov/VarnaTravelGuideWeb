@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.model.Hotel;
-import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.service.impl.HotelServiceImpl;
 
 @RestController
@@ -40,9 +39,9 @@ public class HotelController {
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<Hotel> createShoppingHotel(@RequestBody Hotel hotel, @RequestBody Place place) {
+	public ResponseEntity<Hotel> createShoppingHotel(@RequestBody Hotel hotel) {
 
-		Hotel createdHotel = hotelServiceImpl.createHotel(hotel, place);
+		Hotel createdHotel = hotelServiceImpl.createHotel(hotel);
 		return new ResponseEntity<Hotel>(createdHotel, HttpStatus.OK);
 
 	}

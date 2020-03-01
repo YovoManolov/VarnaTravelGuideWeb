@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
-import com.varnaTravelGuideWeb.model.PriceCategory;
 
 public interface PriceCategoryServiceI {
 	

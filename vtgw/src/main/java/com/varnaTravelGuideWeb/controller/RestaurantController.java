@@ -40,9 +40,9 @@ public class RestaurantController {
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant, @RequestBody Place place) {
+	public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
 
-		Restaurant createdRestaurant = restaurantServiceImpl.createRestaurant(restaurant, place);
+		Restaurant createdRestaurant = restaurantServiceImpl.createRestaurant(restaurant);
 		return new ResponseEntity<Restaurant>(createdRestaurant, HttpStatus.OK);
 
 	}

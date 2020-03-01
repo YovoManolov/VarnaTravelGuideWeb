@@ -5,22 +5,14 @@ import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
-import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.exception.RecordsNotFoundException;
-import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Place;
-import com.varnaTravelGuideWeb.model.utilModels.Image;
-import com.varnaTravelGuideWeb.model.utilModels.WorkHours;
 import com.varnaTravelGuideWeb.repository.PlaceRepository;
-import com.varnaTravelGuideWeb.repository.PriceCategoryRepository;
 import com.varnaTravelGuideWeb.service.intrf.PlaceServiceI;
 
 @Service

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
-import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Landmark;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.repository.LandmarkRepository;
@@ -87,8 +87,13 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	}
 
 	@Override
-	public Landmark createLandmark(Landmark newLandmark,Place newPlace){
+	public Landmark createLandmark(Landmark newLandmark){
 		
+		 if(newLandmark.get_id() == null || newLandmark.get_id().isEmpty()) {
+			 newLandmark.set_id(new ObjectId().toString());
+		 }
+		 
+		 Place newPlace = newLandmark.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newLandmark.setPlace(createdPlace);
 		 

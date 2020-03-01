@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
-import com.varnaTravelGuideWeb.model.Hotel;
 import com.varnaTravelGuideWeb.model.Landmark;
-import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.service.impl.LandmarkServiceImpl;
 
 @RestController
@@ -41,8 +39,8 @@ public class LandmarkController {
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<Landmark> createLandmark(@RequestBody Landmark landmark, @RequestBody Place place) {
-		Landmark createdLandmark = landmarkServiceImpl.createLandmark(landmark, place);
+	public ResponseEntity<Landmark> createLandmark(@RequestBody Landmark landmark) {
+		Landmark createdLandmark = landmarkServiceImpl.createLandmark(landmark);
 		return new ResponseEntity<Landmark>(createdLandmark, HttpStatus.OK);
 	}
 
