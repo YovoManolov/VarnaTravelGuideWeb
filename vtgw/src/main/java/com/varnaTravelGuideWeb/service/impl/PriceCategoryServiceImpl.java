@@ -37,15 +37,18 @@ public class PriceCategoryServiceImpl implements PriceCategoryServiceI {
 	}
 
 	@Override
-	public String addNewPlaceIdByPriceCategoryDescr(String priceCategoryDescr, Place place) 
+	public String addNewPlaceIdByPriceCategoryDescr(String priceCategoryDescr, String placeId) 
 						throws NoSuchElementException {
 		
 		PriceCategory priceCat = priceCategoryRepository.findAll().stream().filter
 				( pc -> 0 == pc.getDescription().compareTo(priceCategoryDescr)).findFirst().get(); 
 		
-		if(priceCat.getPlaces().add(place)) {
+		Place placeToRemoveFromPriceCategory = new Place();
+		placeToRemoveFromPriceCategory.set_id(placeId);
+		
+		if(priceCat.getPlaces().add(placeToRemoveFromPriceCategory)) {
 			priceCategoryRepository.save(priceCat);
-			return "Place with id: " + place.get_id() + "Aded to price category with " +
+			return "Place with id: " + placeToRemoveFromPriceCategory.get_id() + "Aded to price category with " +
 					 "description: "  +  priceCategoryDescr + "!";
 		}else {
 			return "Problem has occured while adding place id to price category document!";
@@ -63,27 +66,34 @@ public class PriceCategoryServiceImpl implements PriceCategoryServiceI {
 					) 
 		).findFirst().orElse(null);
 		
-		List<Place> listOfPlacesForSpecificCategory = priceCategory.getPlaces();
-		
-		int indexToDelete;
-		Place deletedPlaceFromPC = null;
-		for(Place p : listOfPlacesForSpecificCategory) {
-			if(p.get_id().compareTo(placeId) == 0) {
-				indexToDelete = listOfPlacesForSpecificCategory.
-						indexOf(p);
-				deletedPlaceFromPC = listOfPlacesForSpecificCategory.remove(indexToDelete);
-			}
+		if(priceCategory != null) {
 			
-		}
-		
-		if(deletedPlaceFromPC == null) {
-			throw new RecordNotFoundException("Place with id " + placeId 
-			+" was not found in priceCategory :" + priceCategory.getDescription() +" !" );
+				List<Place> listOfPlacesForSpecificCategory = priceCategory.getPlaces();
+			
+				int indexToDelete;
+				Place deletedPlaceFromPC = null;
+				for(Place p : listOfPlacesForSpecificCategory) {
+					if(p.get_id().compareTo(placeId) == 0) {
+						indexToDelete = listOfPlacesForSpecificCategory.indexOf(p);
+						deletedPlaceFromPC = listOfPlacesForSpecificCategory.remove(indexToDelete);
+						priceCategory.setPlaces(listOfPlacesForSpecificCategory);
+						break;
+					}
+				}
+				
+				priceCategoryRepository.save(priceCategory);
+				
+				if(deletedPlaceFromPC == null) {
+					throw new RecordNotFoundException("Place with id " + placeId 
+					+" was not found in priceCategory :" + priceCategory.getDescription() +" !" );
+				}else {
+					return "Place with id " + deletedPlaceFromPC.get_id() +" was deleted "
+							+ "from priceCategory :" + priceCategory.getDescription() ;
+				}
+				
 		}else {
-			return "Place with id " + deletedPlaceFromPC.get_id() +" was deleted "
-					+ "from priceCategory :" + priceCategory.getDescription() ;
+			throw new RecordNotFoundException("PriceCategory not found witch contains place with id: " + placeId);
 		}
-		
 	}
 
 }

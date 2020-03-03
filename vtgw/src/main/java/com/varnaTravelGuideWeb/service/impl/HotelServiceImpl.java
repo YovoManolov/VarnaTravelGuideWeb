@@ -24,6 +24,9 @@ public class HotelServiceImpl implements HotelServiceI {
 	@Autowired 
 	PlaceServiceImpl placeServiceImpl;
 	
+	@Autowired 
+	PriceCategoryServiceImpl priceCategoryServiceImpl;
+	
 	@Override
 	public List<Hotel> getAllHotels() {
 		
@@ -103,15 +106,15 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 		Optional<Hotel> hotelOptional = hotelRepository
 				.findById(hotelId);
-	
+
 		
 		if(hotelOptional.isPresent()) {
-			Place hotelPlace = placeServiceImpl.getPlaceById(
+			String placeIdToDelete= new String(placeServiceImpl.getPlaceById(
 						hotelOptional.get().getPlace_id()
-						);
+						).get_id());
 			
-			placeServiceImpl.deletePlaceById(hotelPlace.get_id());
-						
+			placeServiceImpl.deletePlaceById(placeIdToDelete);
+			priceCategoryServiceImpl.deletePlaceFromPCByPlaceId(placeIdToDelete);
 			hotelRepository.deleteById(hotelId);
 		} else {
 	        throw new RecordNotFoundException(
@@ -121,5 +124,4 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 		return ResponseEntity.ok().build();
 	}
-
 }

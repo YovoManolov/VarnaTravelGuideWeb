@@ -108,7 +108,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		}
 		
 		priceCategorySerciceImpl.addNewPlaceIdByPriceCategoryDescr(
-					newPlace.getPriceCategoryDescription(),newPlace);
+					newPlace.getPriceCategoryDescription(),newPlace.get_id());
 		
 		return placeRepository.save(newPlace);
 	}
@@ -118,8 +118,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 			
 		Optional<Place> place = placeRepository.findById(placeId);
 				
-		if (place.isPresent()) {
-			priceCategorySerciceImpl.deletePlaceFromPCByPlaceId(placeId);
+		if (place.isPresent()) { 
 			placeRepository.deleteById(placeId);
 		} else {
 			throw new RecordNotFoundException("No place record exist for given id:: " + placeId);
@@ -128,6 +127,4 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		return new ResponseEntity<String>("Place deleted", HttpStatus.OK);
 
 	}
-
-	
 }

@@ -64,7 +64,7 @@ public class ShoppingPlaceController {
 	}
 
 	@DeleteMapping("deleteById/{id}")
-	public ResponseEntity<String> deletePeriferialDeviceById(@PathVariable("id") String soppingPlaceId)
+	public ResponseEntity<String> deleteShoppingPlaceById(@PathVariable("id") String soppingPlaceId)
 			throws RecordNotFoundException {
 		return placeServiceImpl.deletePlaceById(soppingPlaceId);
 	}

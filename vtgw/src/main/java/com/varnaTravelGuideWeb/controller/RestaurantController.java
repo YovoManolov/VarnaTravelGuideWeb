@@ -56,7 +56,7 @@ public class RestaurantController {
 	}
 
 	@DeleteMapping("deleteById/{id}")
-	public ResponseEntity<Object> deletePeriferialDeviceById(@PathVariable("id") String restaurantId)
+	public ResponseEntity<Object> deleteRestaurantById(@PathVariable("id") String restaurantId)
 			throws RecordNotFoundException {
 		
 		return restaurantServiceImpl.deleteRestaurant(restaurantId);

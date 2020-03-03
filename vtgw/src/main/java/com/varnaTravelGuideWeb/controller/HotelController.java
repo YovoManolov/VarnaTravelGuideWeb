@@ -39,7 +39,7 @@ public class HotelController {
 	}
 
 	@PutMapping("/create")
-	public ResponseEntity<Hotel> createShoppingHotel(@RequestBody Hotel hotel) {
+	public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel) {
 
 		Hotel createdHotel = hotelServiceImpl.createHotel(hotel);
 		return new ResponseEntity<Hotel>(createdHotel, HttpStatus.OK);
