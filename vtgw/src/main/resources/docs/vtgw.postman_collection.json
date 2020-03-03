@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"serialNumber\":\"8806204\",\n\t\"name\":\"test18\",\n\t\"ipv4\":\"116.116.127.173\"\n}",
+							"raw": "{\n     \"numbOfStars\": 3,\n\t \"place\" : {\n\t    \"name\": \"TestUpdateHotel\",\n\t    \"address\": \"testAddr\",\n\t    \"location\": {\n\t        \"x\": 27.872933,\n\t        \"y\": 43.223435,\n\t        \"type\": \"Point\",\n\t        \"coordinates\": [\n\t            27.872933,\n\t            43.223435\n\t        ]\n\t    },\n\t    \"contacts\": \"Test contactsUpdate3\",\n\t    \"description\": \"Test hotel descr\",\n\t    \"typeOfPlace\": 2,\n\t    \"images\": [\n\t        {\n\t            \"imageURL\": \"17elrSmrHHGnX588ncgWzNnlv3havIXky\",\n\t            \"mainImage\": 1\n\t        },\n\t        {\n\t            \"imageURL\": \"1-j2Mx9qIzQB4iBOwKW_huj6LhCY5SR6x\",\n\t            \"mainImage\": 0\n\t        },\n\t        {\n\t            \"imageURL\": \"1MWMWvCX8mfY-XPOsQ6xhoWXzf_uOu89_\",\n\t            \"mainImage\": 0\n\t        },\n\t        {\n\t            \"imageURL\": \"1kTeQsv3d20raw_r3CoNYAlvjBHGUbej4\",\n\t            \"mainImage\": 0\n\t        },\n\t        {\n\t            \"imageURL\": \"16OIF9a6zBK-PjdJtkmOoDNvcarjehB_y\",\n\t            \"mainImage\": 0\n\t        }\n\t    ],\n\t    \"workHours\": {\n\t        \"is_24H\": false,\n\t        \"mond_fird\": \"10:00h - 21:00h\",\n\t        \"sat\": \"10:00h - 21:00h\",\n\t        \"sun\": \"10:00h - 21:00h\"\n\t    },\n\t    \"priceCategoryDescription\": \"BUDGET\"\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -41,6 +41,49 @@
 								"create"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hotels/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels",
+								"getAll"
+							]
+						},
+						"description": "get all gateways"
+					},
+					"response": []
+				},
+				{
+					"name": "getHotelById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hotels/getOneById/5e5c269ea7e7992c21d91af3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels",
+								"getOneById",
+								"5e5c269ea7e7992c21d91af3"
+							]
+						},
+						"description": "displaying information about signle gateway by given id"
 					},
 					"response": []
 				},
@@ -82,33 +125,12 @@
 					"response": []
 				},
 				{
-					"name": "getAll",
+					"name": "deleteHotelPlaceById",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/gateways/getAll",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"gateways",
-								"getAll"
-							]
-						},
-						"description": "get all gateways"
-					},
-					"response": []
-				},
-				{
-					"name": "getGatewayById",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/hotels/getOneById/",
+							"raw": "http://localhost:8080/hotels/deleteById/5e5c269ea7e7992c21d91af3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -116,11 +138,10 @@
 							"port": "8080",
 							"path": [
 								"hotels",
-								"getOneById",
-								""
+								"deleteById",
+								"5e5c269ea7e7992c21d91af3"
 							]
-						},
-						"description": "displaying information about signle gateway by given id"
+						}
 					},
 					"response": []
 				}
@@ -138,13 +159,13 @@
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"serialNumber\":\"8806204\",\n\t\"name\":\"test18\",\n\t\"ipv4\":\"116.116.127.173\"\n}",
+							"raw": "{\r\n    \"name\": \"Test\",\r\n    \"address\": \"testAddr\",\r\n    \"location\": {\r\n        \"x\": 27.872933,\r\n        \"y\": 43.223435,\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [\r\n            27.872933,\r\n            43.223435\r\n        ]\r\n    },\r\n    \"contacts\": \"Test contacts\",\r\n    \"description\": \"Test descr\",\r\n    \"typeOfPlace\": 3,\r\n    \"images\": [\r\n        {\r\n            \"imageURL\": \"17elrSmrHHGnX588ncgWzNnlv3havIXky\",\r\n            \"mainImage\": 1\r\n        },\r\n        {\r\n            \"imageURL\": \"1-j2Mx9qIzQB4iBOwKW_huj6LhCY5SR6x\",\r\n            \"mainImage\": 0\r\n        },\r\n        {\r\n            \"imageURL\": \"1MWMWvCX8mfY-XPOsQ6xhoWXzf_uOu89_\",\r\n            \"mainImage\": 0\r\n        },\r\n        {\r\n            \"imageURL\": \"1kTeQsv3d20raw_r3CoNYAlvjBHGUbej4\",\r\n            \"mainImage\": 0\r\n        },\r\n        {\r\n            \"imageURL\": \"16OIF9a6zBK-PjdJtkmOoDNvcarjehB_y\",\r\n            \"mainImage\": 0\r\n        }\r\n    ],\r\n    \"workHours\": {\r\n        \"is_24H\": false,\r\n        \"mond_fird\": \"10:00h - 21:00h\",\r\n        \"sat\": \"10:00h - 21:00h\",\r\n        \"sun\": \"10:00h - 21:00h\"\r\n    },\t\r\n    \"priceCategoryDescription\": \"COMBINED\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -180,7 +201,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"serialNumber\":\"8806204\",\n\t\"name\":\"test17.2\",\n\t\"ipv4\":\"116.116.127.173\"\n}",
+							"raw": "{\r\n    \"name\": \"TestUpdate3\",\r\n    \"address\": \"testAddr\",\r\n    \"location\": {\r\n        \"x\": 27.872933,\r\n        \"y\": 43.223435,\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [\r\n            27.872933,\r\n            43.223435\r\n        ]\r\n    },\r\n    \"contacts\": \"Test contactsUpdate3\",\r\n    \"description\": \"Test descr\",\r\n    \"typeOfPlace\": 3,\r\n    \"images\": [\r\n        {\r\n            \"imageURL\": \"17elrSmrHHGnX588ncgWzNnlv3havIXky\",\r\n            \"mainImage\": 1\r\n        },\r\n        {\r\n            \"imageURL\": \"1-j2Mx9qIzQB4iBOwKW_huj6LhCY5SR6x\",\r\n            \"mainImage\": 0\r\n        },\r\n        {\r\n            \"imageURL\": \"1MWMWvCX8mfY-XPOsQ6xhoWXzf_uOu89_\",\r\n            \"mainImage\": 0\r\n        },\r\n        {\r\n            \"imageURL\": \"1kTeQsv3d20raw_r3CoNYAlvjBHGUbej4\",\r\n            \"mainImage\": 0\r\n        },\r\n        {\r\n            \"imageURL\": \"16OIF9a6zBK-PjdJtkmOoDNvcarjehB_y\",\r\n            \"mainImage\": 0\r\n        }\r\n    ],\r\n    \"workHours\": {\r\n        \"is_24H\": false,\r\n        \"mond_fird\": \"10:00h - 21:00h\",\r\n        \"sat\": \"10:00h - 21:00h\",\r\n        \"sun\": \"10:00h - 21:00h\"\r\n    },\t\r\n    \"priceCategoryDescription\": \"COMBINED\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -188,7 +209,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/shoppingPlaces/update/",
+							"raw": "http://localhost:8080/shoppingPlaces/update/5e5a901fdccda1713c188bdd",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -197,7 +218,7 @@
 							"path": [
 								"shoppingPlaces",
 								"update",
-								""
+								"5e5a901fdccda1713c188bdd"
 							]
 						}
 					},
@@ -209,14 +230,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/gateways/getAll",
+							"raw": "http://localhost:8080/shoppingPlaces/getAll",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"gateways",
+								"shoppingPlaces",
 								"getAll"
 							]
 						},
@@ -225,12 +246,12 @@
 					"response": []
 				},
 				{
-					"name": "getGatewayById",
+					"name": "getShoppingPlaceById",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/shoppingPlaces/getOneById/",
+							"raw": "http://localhost:8080/shoppingPlaces/getShoppingPlaceById/5e5a88412b51dc39d74b5bb8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -238,11 +259,32 @@
 							"port": "8080",
 							"path": [
 								"shoppingPlaces",
-								"getOneById",
-								""
+								"getShoppingPlaceById",
+								"5e5a88412b51dc39d74b5bb8"
 							]
 						},
 						"description": "displaying information about signle gateway by given id"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteShoppingPlaceById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shoppingPlaces/deleteById/5e5a88412b51dc39d74b5bb8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shoppingPlaces",
+								"deleteById",
+								"5e5a88412b51dc39d74b5bb8"
+							]
+						}
 					},
 					"response": []
 				}
@@ -266,7 +308,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"serialNumber\":\"8806204\",\n\t\"name\":\"test18\",\n\t\"ipv4\":\"116.116.127.173\"\n}",
+							"raw": "{\n     \"cuisine\": \"Cuisine: test create cuisine\",\n\t \"place\" : {\n\t    \"name\": \"TestCreateRestaurant\",\n\t    \"address\": \"testAddr\",\n\t    \"location\": {\n\t        \"x\": 27.872933,\n\t        \"y\": 43.223435,\n\t        \"type\": \"Point\",\n\t        \"coordinates\": [\n\t            27.872933,\n\t            43.223435\n\t        ]\n\t    },\n\t    \"contacts\": \"Test contacts create\",\n\t    \"description\": \"Test restaurant descr\",\n\t    \"typeOfPlace\": 1,\n\t    \"images\": [\n\t        {\n\t            \"imageURL\": \"17elrSmrHHGnX588ncgWzNnlv3havIXky\",\n\t            \"mainImage\": 1\n\t        },\n\t        {\n\t            \"imageURL\": \"1-j2Mx9qIzQB4iBOwKW_huj6LhCY5SR6x\",\n\t            \"mainImage\": 0\n\t        },\n\t        {\n\t            \"imageURL\": \"1MWMWvCX8mfY-XPOsQ6xhoWXzf_uOu89_\",\n\t            \"mainImage\": 0\n\t        },\n\t        {\n\t            \"imageURL\": \"1kTeQsv3d20raw_r3CoNYAlvjBHGUbej4\",\n\t            \"mainImage\": 0\n\t        },\n\t        {\n\t            \"imageURL\": \"16OIF9a6zBK-PjdJtkmOoDNvcarjehB_y\",\n\t            \"mainImage\": 0\n\t        }\n\t    ],\n\t    \"workHours\": {\n\t        \"is_24H\": false,\n\t        \"mond_fird\": \"10:00h - 21:00h\",\n\t        \"sat\": \"10:00h - 21:00h\",\n\t        \"sun\": \"10:00h - 21:00h\"\n\t    },\n\t    \"priceCategoryDescription\": \"MID_RANGE\"\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -365,6 +407,27 @@
 							]
 						},
 						"description": "displaying information about signle gateway by given id"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRestaurantPlaceById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/restaurants/deleteById/5e5a88412b51dc39d74b5bb8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restaurants",
+								"deleteById",
+								"5e5a88412b51dc39d74b5bb8"
+							]
+						}
 					},
 					"response": []
 				}
@@ -487,6 +550,27 @@
 							]
 						},
 						"description": "displaying information about signle gateway by given id"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLandmarkPlaceById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/landmarks/deleteById/5e5a88412b51dc39d74b5bb8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"landmarks",
+								"deleteById",
+								"5e5a88412b51dc39d74b5bb8"
+							]
+						}
 					},
 					"response": []
 				}
