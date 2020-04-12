@@ -38,7 +38,7 @@ public class HotelController {
 		return new ResponseEntity<Hotel>(hotel, HttpStatus.OK);
 	}
 
-	@PutMapping("/create")
+	@PostMapping("/create")
 	public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel) {
 
 		Hotel createdHotel = hotelServiceImpl.createHotel(hotel);
@@ -46,7 +46,7 @@ public class HotelController {
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Hotel> updateHotel(@RequestBody Hotel newHotel,  @PathVariable(value = "id") String hotelId)
+	public ResponseEntity<Hotel> updateHotel(@PathVariable(value = "id") String hotelId, @RequestBody Hotel newHotel)
 			throws RecordNotFoundException {
 		
 		Hotel updatedShoppingHotel = hotelServiceImpl.updateHotel(newHotel ,hotelId);
