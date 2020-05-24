@@ -1,3 +1,8 @@
+okta:
+  oauth2:
+      issuer: https://dev-380801.okta.com/oauth2/default
+      client-id: 0oaaw6k5tWxBzlPvb4x6
+
 spring:
     security:
        user:
@@ -10,10 +15,10 @@ spring:
       mongodb:
         uri: mongodb+srv://admin:admin@varnatravelguide-z24ti.gcp.mongodb.net/test?retryWrites=true&w=majority
         database: varnaTravelGuideDB
-        
+     
 logging:  
   level:
     root: INFO
-    org.springframework.web: DEBUG
+    org.springframework.web.client: DEBUG
     org.springframework.security: INFO
     org.mongodb: WARN
