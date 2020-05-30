@@ -1,7 +1,6 @@
 package com.varnaTravelGuideWeb.service.intrf;
 
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
-import com.varnaTravelGuideWeb.model.Place;
 
 public interface PriceCategoryServiceI {
 	
