@@ -44,7 +44,6 @@ public class RestaurantController {
 
 		Restaurant createdRestaurant = restaurantServiceImpl.createRestaurant(restaurant);
 		return new ResponseEntity<Restaurant>(createdRestaurant, HttpStatus.OK);
-
 	}
 
 	@PutMapping("/update/{id}")

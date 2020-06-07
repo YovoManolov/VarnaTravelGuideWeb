@@ -59,7 +59,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	    	
 	    	return landmarkObj;
         } else {
-            throw new RecordNotFoundException("No landmark record exist for given landmarkId");
+            throw new RecordNotFoundException("No landmark record exist for given landmarkId: "+ landmarkId);
         }
 	
 	}

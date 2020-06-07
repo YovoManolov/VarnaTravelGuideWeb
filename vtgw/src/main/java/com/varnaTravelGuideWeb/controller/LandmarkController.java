@@ -26,7 +26,7 @@ public class LandmarkController {
 	LandmarkServiceImpl landmarkServiceImpl;
 
 	@GetMapping("/getAll")
-	public ResponseEntity<List<Landmark>> getAllShoppingLandmarks() {
+	public ResponseEntity<List<Landmark>> getAllLandmarks() {
 		List<Landmark> landmarkList = landmarkServiceImpl.getAllLandmarks();
 		return new ResponseEntity<List<Landmark>>(landmarkList, HttpStatus.OK);
 	}

@@ -60,7 +60,7 @@ public class HotelServiceImpl implements HotelServiceI {
 	    	hotelObj.setPlace(p);
 	    	return hotelObj;
         } else {
-            throw new RecordNotFoundException("No hotel record exist for given hotelId");
+            throw new RecordNotFoundException("No hotel record exist for given hotelId: " + hotelId);
         }
 	}
 

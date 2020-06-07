@@ -55,7 +55,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 						.getPriceCategoryDescrByPlaceId(p.get_id()));
 			return p;
 		} else {
-			throw new RecordNotFoundException("No place record exist for given placeId");
+			throw new RecordNotFoundException("No place record exist for given placeId: " + placeId);
 		}
 		
 	}

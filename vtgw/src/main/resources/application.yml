@@ -11,6 +11,12 @@
 #     resource:
 #        userInfoUri: https://dev-380801.okta.com/oauth2/default/v1/userinfo
 #    
+
+okta:
+  oauth2:
+    client-id:  0oaaw6k5tWxBzlPvb4x6
+    issuer: https://dev-380801.okta.com/oauth2/default
+
 spring: 
     data: 
       mongo:

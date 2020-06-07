@@ -57,7 +57,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	    	restaurantObj.setPlace(p);
 	    	return restaurantObj;
         } else {
-        	 throw new RecordNotFoundException("No restaurant record exist for given restaurantId");
+        	 throw new RecordNotFoundException("No restaurant record exist for given restaurantId: " + restaurantId);
         }
 	}
 
