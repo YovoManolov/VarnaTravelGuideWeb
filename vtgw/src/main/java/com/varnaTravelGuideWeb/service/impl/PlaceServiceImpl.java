@@ -64,7 +64,6 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	public Place updatePlace(Place newPlace, Place currentPlace) {
             
 			//currently price category description update is not implemented ! 
-		
 			if(currentPlace.getName().compareToIgnoreCase(newPlace.getName().trim()) != 0 ) {
 		    	currentPlace.setName(newPlace.getName());
 		    }

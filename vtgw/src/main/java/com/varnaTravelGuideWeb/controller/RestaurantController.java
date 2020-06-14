@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.varnaTravelGuideWeb.exception.RecordNotFoundException;
 import com.varnaTravelGuideWeb.model.Place;
 import com.varnaTravelGuideWeb.model.Restaurant;
@@ -55,7 +54,7 @@ public class RestaurantController {
 
 	}
 
-	@DeleteMapping("deleteById/{id}")
+	@DeleteMapping("/deleteById/{id}")
 	public ResponseEntity<Object> deleteRestaurantById(@PathVariable("id") String restaurantId)
 			throws RecordNotFoundException {
 		
