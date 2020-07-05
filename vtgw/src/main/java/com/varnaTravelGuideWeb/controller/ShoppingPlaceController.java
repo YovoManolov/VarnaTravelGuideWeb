@@ -36,7 +36,7 @@ public class ShoppingPlaceController {
 		return new ResponseEntity<List<Place>>(shoppingPlacesList, HttpStatus.OK);
 	}		
 
-	@GetMapping("/getShoppingPlaceById/{id}")
+	@GetMapping("/getOneById/{id}")
 	public ResponseEntity<Place> getShoppingPlaceById(@PathVariable(value = "id") String shoppingPlaceId)
 			throws NotAShoppingPlaceException, RecordNotFoundException {
 		Place place = placeServiceImpl.getPlaceById(shoppingPlaceId);

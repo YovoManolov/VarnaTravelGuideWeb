@@ -1,17 +1,3 @@
-
-#security:
-#  oauth2:
-#     client:
-#        client-id: 0oaaw6k5tWxBzlPvb4x6
-#        clientSecret: _Lf4zuPZONuBcLwn1bNKvxo4S9kl5xahDR6VPDOv
-#        accessTokenUri: https://dev-380801.okta.com/oauth2/default/v1/token
-#        userAuthorizationUri: https://dev-380801.okta.com/oauth2/default/v1/authorize
-#        clientAuthenticationScheme: form
-#        scope: openid
-#     resource:
-#        userInfoUri: https://dev-380801.okta.com/oauth2/default/v1/userinfo
-#    
-
 okta:
   oauth2:
     client-id:  0oaaw6k5tWxBzlPvb4x6

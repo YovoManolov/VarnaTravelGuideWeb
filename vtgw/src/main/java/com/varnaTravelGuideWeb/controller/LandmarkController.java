@@ -47,9 +47,7 @@ public class LandmarkController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Landmark> updateLandmark(@RequestBody Landmark newLandmark,
 			@PathVariable(value = "id") String landmarkId) throws RecordNotFoundException {
-
 		Landmark updatedLandmark = landmarkServiceImpl.updateLandmark(newLandmark, landmarkId);
-		
 		return new ResponseEntity<Landmark>(updatedLandmark, HttpStatus.OK);
 	}
 
