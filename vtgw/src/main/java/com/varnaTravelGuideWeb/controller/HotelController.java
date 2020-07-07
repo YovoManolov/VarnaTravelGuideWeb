@@ -26,7 +26,7 @@ public class HotelController {
 	HotelServiceImpl hotelServiceImpl;
 
 	@GetMapping("/getAll")
-	public ResponseEntity<List<Hotel>> getAllShoppingHotels() {
+	public ResponseEntity<List<Hotel>> getAllHotels() {
 		List<Hotel> hotelList = hotelServiceImpl.getAllHotels();
 		return new ResponseEntity<List<Hotel>>(hotelList, HttpStatus.OK);
 	}
