@@ -36,7 +36,7 @@ public class HotelServiceImpl implements HotelServiceI {
         	
         	for(Hotel h : hotelList) {
      		   try {
-     				Place p = placeServiceImpl.getPlaceById(h.getPlace_id());
+     				Place p = placeServiceImpl.getPlaceById(h.getPlace_id().toHexString());
      				h.setPlace(p);
      			} catch (RecordNotFoundException e) {
      				e.printStackTrace();
@@ -56,7 +56,7 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 	    if(hotel.isPresent()) {
 	    	Hotel hotelObj =  hotel.get();
-	    	Place p = placeServiceImpl.getPlaceById(hotelObj.getPlace_id());
+	    	Place p = placeServiceImpl.getPlaceById(hotelObj.getPlace_id().toString());
 	    	hotelObj.setPlace(p);
 	    	return hotelObj;
         } else {
@@ -75,7 +75,7 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 			Place currentHotelPlace = null;
 			try {
-				currentHotelPlace = placeServiceImpl.getPlaceById(hotelUpdated.getPlace().get_id());
+				currentHotelPlace = placeServiceImpl.getPlaceById(hotelUpdated.getPlace_id().toHexString());
 			} catch (RecordNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -96,7 +96,7 @@ public class HotelServiceImpl implements HotelServiceI {
 		
 		 Place newPlace = newHotel.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
-		 newHotel.setPlace_id(createdPlace.get_id());
+		 newHotel.setPlace_id(new ObjectId(createdPlace.get_id()));
 		 
 		 return hotelRepository.save(newHotel);
 	}
@@ -107,15 +107,16 @@ public class HotelServiceImpl implements HotelServiceI {
 		Optional<Hotel> hotelOptional = hotelRepository
 				.findById(hotelId);
 
-		
 		if(hotelOptional.isPresent()) {
+			
 			String placeIdToDelete= new String(placeServiceImpl.getPlaceById(
-						hotelOptional.get().getPlace_id()
-						).get_id());
+						hotelOptional.get().getPlace_id().toHexString()
+			).get_id());
 			
 			placeServiceImpl.deletePlaceById(placeIdToDelete);
 			priceCategoryServiceImpl.deletePlaceFromPCByPlaceId(placeIdToDelete);
 			hotelRepository.deleteById(hotelId);
+			
 		} else {
 	        throw new RecordNotFoundException(
 	            "Hotel record with id : " + hotelId + " does not exist !"

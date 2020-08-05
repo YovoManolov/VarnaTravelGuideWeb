@@ -31,10 +31,10 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		
         if(landmarkList.size() > 0) {
         	
-        	for(Landmark l : landmarkList) {
+        	for(Landmark landmark : landmarkList) {
        		   try {
-       				Place p = placeServiceImpl.getPlaceById(l.getPlace_id());
-       				l.setPlace(p);
+       				Place p = placeServiceImpl.getPlaceById(landmark.getPlace_id().toHexString());
+       				landmark.setPlace(p);
        			} catch (RecordNotFoundException e) {
        				e.printStackTrace();
        			}
@@ -54,7 +54,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		
 		if(landmark.isPresent()) {
 	    	Landmark landmarkObj =  landmark.get();
-	    	Place p = placeServiceImpl.getPlaceById(landmarkObj.getPlace_id());
+	    	Place p = placeServiceImpl.getPlaceById(landmarkObj.getPlace_id().toHexString());
 	    	landmarkObj.setPlace(p);
 	    	
 	    	return landmarkObj;
@@ -97,7 +97,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		 Place newPlace = newLandmark.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newLandmark.setPlace(createdPlace);
-		 newLandmark.setPlace_id(createdPlace.get_id());
+		 newLandmark.setPlace_id(new ObjectId(createdPlace.get_id()));
 		 
 		 return landmarkRepository.save(newLandmark);
 	}
@@ -110,8 +110,8 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 		
 		if(landmarkOptional.isPresent()) {
 			Place landmarkPlace = placeServiceImpl.getPlaceById(
-					landmarkOptional.get().getPlace_id()
-					);
+					landmarkOptional.get().getPlace_id().toHexString()
+			);
 		
 			placeServiceImpl.deletePlaceById(landmarkPlace.get_id());
 			

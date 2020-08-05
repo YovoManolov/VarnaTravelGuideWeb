@@ -31,10 +31,12 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 		
         if(restaurantsList.size() > 0) {
         	
-        	for(Restaurant r : restaurantsList) {
+        	for(Restaurant restaurant : restaurantsList) {
  	 		   try {
- 	 				Place p = placeServiceImpl.getPlaceById(r.getPlace_id());
- 	 				r.setPlace(p);
+ 	 				Place p = placeServiceImpl.getPlaceById(
+ 	 							restaurant.getPlace_id().toString()
+ 	 				);
+ 	 				restaurant.setPlace(p);
  	 			} catch (RecordNotFoundException e) {
  	 				e.printStackTrace();
  	 			}
@@ -53,7 +55,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	    
 		if(restaurant.isPresent()) {
 			Restaurant restaurantObj =  restaurant.get();
-	    	Place p = placeServiceImpl.getPlaceById(restaurantObj.getPlace_id());
+	    	Place p = placeServiceImpl.getPlaceById(restaurantObj.getPlace_id().toString());
 	    	restaurantObj.setPlace(p);
 	    	return restaurantObj;
         } else {
@@ -73,7 +75,9 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 			
 			Place currentRestaurantPlace = null;
 			try {
-				currentRestaurantPlace = placeServiceImpl.getPlaceById(newRestaurant.getPlace().get_id());
+				currentRestaurantPlace = placeServiceImpl.getPlaceById(
+							newRestaurant.getPlace_id().toHexString()
+				);
 			} catch (RecordNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -95,7 +99,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 		 Place newPlace = newRestaurant.getPlace();
 		 Place createdPlace = placeServiceImpl.createPlace(newPlace);
 		 newRestaurant.setPlace(createdPlace);
-		 newRestaurant.setPlace_id(createdPlace.get_id());
+		 newRestaurant.setPlace_id(new ObjectId(createdPlace.get_id()));
 		 
 		 return restaurantRepository.save(newRestaurant);
 	}
@@ -108,8 +112,8 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 		
 		if(retaurantOptional.isPresent()) {
 			Place restaurantPlace = placeServiceImpl.getPlaceById(
-					retaurantOptional.get().getPlace_id()
-					);
+					retaurantOptional.get().getPlace_id().toHexString()
+			);
 		
 			placeServiceImpl.deletePlaceById(restaurantPlace.get_id());
 			

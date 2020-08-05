@@ -15,4 +15,5 @@ public class NotAShoppingPlaceException extends Exception {
     public NotAShoppingPlaceException(String message, Throwable t) {
         super(message, t);
     }
+    
 }
