@@ -82,7 +82,9 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 				e.printStackTrace();
 			}
 			
-			placeServiceImpl.updatePlace(newRestaurant.getPlace(),currentRestaurantPlace);
+			Place updatedPlace = placeServiceImpl.updatePlace(newRestaurant.getPlace(),currentRestaurantPlace);
+			restaurantUpdated.setPlace(updatedPlace);
+			
 			return restaurantRepository.save(restaurantUpdated);
 		});
 
@@ -124,7 +126,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
 	        );
 	    }
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok("Restaurant is deleted");
 	}
 
 }

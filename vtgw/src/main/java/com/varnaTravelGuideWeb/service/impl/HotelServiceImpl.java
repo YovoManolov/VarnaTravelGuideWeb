@@ -79,8 +79,10 @@ public class HotelServiceImpl implements HotelServiceI {
 			} catch (RecordNotFoundException e) {
 				e.printStackTrace();
 			}
-			placeServiceImpl.updatePlace(newHotel.getPlace(), currentHotelPlace);
-
+			
+			Place updatedPlace = placeServiceImpl.updatePlace(newHotel.getPlace(), currentHotelPlace);
+			hotelUpdated.setPlace(updatedPlace);
+			
 			return hotelRepository.save(hotelUpdated);
 		});
 
@@ -123,6 +125,6 @@ public class HotelServiceImpl implements HotelServiceI {
 	        );
 	    }
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok("Hotel is deleted");
 	}
 }

@@ -56,6 +56,6 @@ public class HotelController {
 	@DeleteMapping("deleteById/{id}")
 	public ResponseEntity<Object> deleteHotelById(@PathVariable("id") String hotelId)
 			throws RecordNotFoundException {
-		return  hotelServiceImpl.deleteHotel(hotelId);
+		return hotelServiceImpl.deleteHotel(hotelId);
 	}
 }

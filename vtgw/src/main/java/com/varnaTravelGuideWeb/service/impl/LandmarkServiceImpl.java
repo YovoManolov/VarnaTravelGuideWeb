@@ -65,7 +65,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	}
 
 	@Override
-	public Landmark updateLandmark(Landmark newLandmark, String landmarkId) {
+	public Landmark updateLandmark(Landmark newLandmark, String landmarkId) throws RecordNotFoundException {
 		
 		Optional<Landmark> updatedLandmark = landmarkRepository.findById(landmarkId).map(landmarkUpdated -> {
 			
@@ -79,8 +79,10 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 			} catch (RecordNotFoundException e) {
 				e.printStackTrace();
 			}
-			placeServiceImpl.updatePlace(newLandmark.getPlace(),currentLandmarkPlace);
-
+			
+			Place updatedPlace = placeServiceImpl.updatePlace(newLandmark.getPlace(),currentLandmarkPlace);
+			landmarkUpdated.setPlace(updatedPlace);
+			
 			return landmarkRepository.save(landmarkUpdated);
 		});
 
@@ -122,8 +124,7 @@ public class LandmarkServiceImpl implements LandmarkServiceI {
 	        );
 	    }
 		
-		return ResponseEntity.ok().build();
-	
+		return ResponseEntity.ok("Landmark is deleted");
 	}
 
 }
