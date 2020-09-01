@@ -22,7 +22,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 	PlaceRepository placeRepository;
 	
 	@Autowired 
-	PriceCategoryServiceImpl priceCategorySerciceImpl;
+	PriceCategoryServiceImpl priceCategoryServiceImpl;
 
 	@Override
 	public List<Place> getAllPlaces() throws RecordsNotFoundException {
@@ -30,7 +30,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		List<Place> placesList = placeRepository.findAll();
 		for(Place place : placesList) {
 			try {
-				place.setPriceCategoryDescription(priceCategorySerciceImpl
+				place.setPriceCategoryDescription(priceCategoryServiceImpl
 							.getPriceCategoryDescrByPlaceId(place.get_id()));
 			} catch (RecordNotFoundException e) {
 				e.printStackTrace();
@@ -51,7 +51,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 		
 		if (place.isPresent()) {
 			Place p = place.get();
-			p.setPriceCategoryDescription(priceCategorySerciceImpl
+			p.setPriceCategoryDescription(priceCategoryServiceImpl
 						.getPriceCategoryDescrByPlaceId(p.get_id()));
 			return p;
 		} else {
@@ -107,7 +107,7 @@ public class PlaceServiceImpl implements PlaceServiceI {
 			newPlace.set_id(new ObjectId().toString());
 		}
 		
-		priceCategorySerciceImpl.addNewPlaceIdByPriceCategoryDescr(
+		priceCategoryServiceImpl.addNewPlaceIdByPriceCategoryDescr(
 					newPlace.getPriceCategoryDescription(),newPlace.get_id());
 		
 		return placeRepository.save(newPlace);
