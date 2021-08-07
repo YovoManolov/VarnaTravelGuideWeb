@@ -11,19 +11,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @ToString
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection="hotels")
+@Document(collection = "hotels")
 public class Hotel {
-		
-		@Id
-	    private String _id ;
-		private ObjectId place_id;
-		private int numbOfStars;
-		@Transient
-		private Place place;
+
+	@Id
+	private String _id;
+	private ObjectId place_id;
+	private int numbOfStars;
+	@Transient
+	private Place place;
 }
